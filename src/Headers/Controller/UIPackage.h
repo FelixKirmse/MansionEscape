@@ -8,14 +8,14 @@ class Room;
 class Item;
 
 /*!
- \brief SchnuckelWuckel
+ \brief Bundles all required data to display the current game state
 
  \struct UIPackage Controller/UIPackage.h
 */
 struct UIPackage
 {
-  std::vector<Item> const& Inventory; /*!< TODO */
-  std::string const& Feedback; /*!< TODO */
-  Room const& CurrentRoom; /*!< TODO */
+  std::vector<Item> const& Inventory; /*!< Reference to the players inventory */
+  std::string const& Feedback; /*!< Reference to the current feedback-string */
+  Room const& CurrentRoom; /*!< This will change soon, UI don't need access to it */
 };
 }
