@@ -1,0 +1,4 @@
+syntax: glob
+MansionEscape.creator.user
+lib/
+obj/
