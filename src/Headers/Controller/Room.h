@@ -9,8 +9,11 @@ namespace MansionEscape
 struct ContextAction;
 
 /*!
- \brief The Room class. \n
- This class is currently changes heavily and fast.
+ \addtogroup Controller
+ \{
+*/
+/*!
+ \brief Represent a %Room. This class currently changes heavily and fast.
 
  \class Room Controller/Room.h
 */
@@ -57,4 +60,5 @@ private:
   ImageMap _imageMap; /*!< TODO */
   std::string _roomDescription; /*!< TODO */
 };
+/*!\}*/
 }

@@ -14,3 +14,11 @@ src/Headers/Controller/IController.h
 src/Headers/Controller/UIPackage.h
 src/Headers/Controller/Room.h
 src/Headers/Controller/ContextAction.h
+premake4.lua
+src/Headers/View/ui_GUI.h
+src/Headers/View/GUI.ui
+src/MansionEscape/View/moc_GUI.cpp
+src/Headers/GameOptions.h
+src/Headers/Launcher.h
+src/MansionEscape/Launcher.cpp
+src/MansionEscape/LauncherConstants.inc

@@ -11,6 +11,10 @@ struct UIPackage;
 struct ContextAction;
 
 /*!
+ \addtogroup Controller
+ \{
+*/
+/*!
  \brief Interface that exposes functions to control game state
 
  \interface IController Controller/IController.h
@@ -71,4 +75,5 @@ public:
   */
   virtual void PerformContextAction(ContextAction action) = 0;
 };
+/*!\}*/
 }

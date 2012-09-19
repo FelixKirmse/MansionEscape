@@ -47,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -87,20 +89,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00007"></a>00007 <span class="keyword">class </span>Room;
 <a name="l00008"></a>00008 <span class="keyword">class </span>Item;
 <a name="l00009"></a>00009 
-<a name="l00015"></a><a class="code" href="structMansionEscape_1_1UIPackage.html">00015</a> <span class="keyword">struct </span><a class="code" href="structMansionEscape_1_1UIPackage.html" title="Bundles all required data to display the current game state.">UIPackage</a>
-<a name="l00016"></a>00016 {
-<a name="l00017"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a5bc2ac1ad8b75c78879d2f1789657a68">00017</a>   std::vector&lt;Item&gt; <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a5bc2ac1ad8b75c78879d2f1789657a68">Inventory</a>; 
-<a name="l00018"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a85924d009a8453710c37de4db42a6a08">00018</a>   std::string <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a85924d009a8453710c37de4db42a6a08">Feedback</a>; 
-<a name="l00019"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a756dca653306bdd163f81464318c80b8">00019</a>   <a class="code" href="classMansionEscape_1_1Room.html" title="The Room class.   This class is currently changes heavily and fast.">Room</a> <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a756dca653306bdd163f81464318c80b8">CurrentRoom</a>; 
-<a name="l00020"></a>00020 };
-<a name="l00021"></a>00021 }
+<a name="l00018"></a><a class="code" href="structMansionEscape_1_1UIPackage.html">00018</a> <span class="keyword">struct </span><a class="code" href="structMansionEscape_1_1UIPackage.html" title="Bundles all required data to display the current game state.">UIPackage</a>
+<a name="l00019"></a>00019 {
+<a name="l00020"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a5bc2ac1ad8b75c78879d2f1789657a68">00020</a>   std::vector&lt;Item&gt; <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a5bc2ac1ad8b75c78879d2f1789657a68">Inventory</a>; 
+<a name="l00021"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a85924d009a8453710c37de4db42a6a08">00021</a>   std::string <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a85924d009a8453710c37de4db42a6a08">Feedback</a>; 
+<a name="l00022"></a><a class="code" href="structMansionEscape_1_1UIPackage.html#a756dca653306bdd163f81464318c80b8">00022</a>   <a class="code" href="classMansionEscape_1_1Room.html" title="Represent a Room. This class currently changes heavily and fast.">Room</a> <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1UIPackage.html#a756dca653306bdd163f81464318c80b8">CurrentRoom</a>; 
+<a name="l00023"></a>00023 };
+<a name="l00025"></a>00025 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 17 2012 16:20:04 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 19 2012 15:53:11 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

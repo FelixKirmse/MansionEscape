@@ -8,8 +8,11 @@ class Room;
 class Item;
 
 /*!
+ \addtogroup Controller
+ \{
+*/
+/*!
  \brief Bundles all required data to display the current game state
-
  \struct UIPackage Controller/UIPackage.h
 */
 struct UIPackage
@@ -18,4 +21,5 @@ struct UIPackage
   std::string const& Feedback; /*!< Reference to the current feedback-string */
   Room const& CurrentRoom; /*!< This will change soon, UI don't need access to it */
 };
+/*!\}*/
 }

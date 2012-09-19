@@ -47,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,6 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -79,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">MansionEscape::IController Interface Reference</div>  </div>
+<div class="title">MansionEscape::IController Interface Reference<div class="ingroups"><a class="el" href="group__Controller.html">Controller</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="MansionEscape::IController" -->
@@ -107,6 +110,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classMansionEscape_1_1IController.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="IController_8h_source.html">Controller/IController.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for MansionEscape::IController:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classMansionEscape_1_1IController.png" usemap="#MansionEscape::IController_map" alt=""/>
+  <map id="MansionEscape::IController_map" name="MansionEscape::IController_map">
+<area href="classMansionEscape_1_1Controller.html" title="Controls game state." alt="MansionEscape::Controller" shape="rect" coords="0,56,167,80"/>
+</map>
+ </div></div>
 
 <p><a href="interfaceMansionEscape_1_1IController-members.html">List of all members.</a></p>
 <table class="memberdecls">
@@ -130,8 +142,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14da67e3f60fc7ae3412a435394044eb"></a><!-- doxytag: member="MansionEscape::IController::Inspect" ref="a14da67e3f60fc7ae3412a435394044eb" args="()=0" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMansionEscape_1_1IController.html#a14da67e3f60fc7ae3412a435394044eb">Inspect</a> ()=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Inspect the your current FoV more thouroughly to potentially unlock more ContextActions. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMansionEscape_1_1IController.html#a7dc939ebed750a19ca7e18a7d0071b85">PerformContextAction</a> (<a class="el" href="structMansionEscape_1_1ContextAction.html">ContextAction</a> action)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to perform a <a class="el" href="structMansionEscape_1_1ContextAction.html">ContextAction</a>.  <a href="#a7dc939ebed750a19ca7e18a7d0071b85"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMansionEscape_1_1IController.html#a7dc939ebed750a19ca7e18a7d0071b85">PerformContextAction</a> (ContextAction action)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to perform a ContextAction.  <a href="#a7dc939ebed750a19ca7e18a7d0071b85"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Interface that exposes functions to control game state. </p>
@@ -159,6 +171,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </dd>
 </dl>
 
+<p>Implemented in <a class="el" href="classMansionEscape_1_1Controller.html#a78a207c6175f140266c3941c6539b6bb">MansionEscape::Controller</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9fc7e98f904ce8bd80b2b79c694f7bb3"></a><!-- doxytag: member="MansionEscape::IController::GetUIPackage" ref="a9fc7e98f904ce8bd80b2b79c694f7bb3" args="() const =0" -->
@@ -179,6 +193,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Should be used after using any other functions of this interface to get an updated state of the game.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="structMansionEscape_1_1UIPackage.html" title="Bundles all required data to display the current game state.">UIPackage</a> const&amp; </dd></dl>
 
+<p>Implemented in <a class="el" href="classMansionEscape_1_1Controller.html#a4d701ebbca09b8b27562bf6ac389becc">MansionEscape::Controller</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7dc939ebed750a19ca7e18a7d0071b85"></a><!-- doxytag: member="MansionEscape::IController::PerformContextAction" ref="a7dc939ebed750a19ca7e18a7d0071b85" args="(ContextAction action)=0" -->
@@ -188,7 +204,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
         <tr>
           <td class="memname">virtual void <a class="el" href="classMansionEscape_1_1IController.html#a7dc939ebed750a19ca7e18a7d0071b85">MansionEscape::IController::PerformContextAction</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structMansionEscape_1_1ContextAction.html">ContextAction</a>&#160;</td>
+          <td class="paramtype">ContextAction&#160;</td>
           <td class="paramname"><em>action</em></td><td>)</td>
           <td><code> [pure virtual]</code></td>
         </tr>
@@ -196,13 +212,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div>
 <div class="memdoc">
 
-<p>Attempt to perform a <a class="el" href="structMansionEscape_1_1ContextAction.html">ContextAction</a>. </p>
+<p>Attempt to perform a ContextAction. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">action</td><td>The <a class="el" href="structMansionEscape_1_1ContextAction.html">ContextAction</a> to perform. </td></tr>
+    <tr><td class="paramname">action</td><td>The ContextAction to perform. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Implemented in <a class="el" href="classMansionEscape_1_1Controller.html#aeac1ac0e451aa47289d45c3cb8f1fcdc">MansionEscape::Controller</a>.</p>
 
 </div>
 </div>
@@ -229,6 +247,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </dd>
 </dl>
 
+<p>Implemented in <a class="el" href="classMansionEscape_1_1Controller.html#a3a196eae0a4a1429146a11badd620ca5">MansionEscape::Controller</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
@@ -240,7 +260,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -252,7 +272,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 17 2012 16:20:04 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 19 2012 15:53:11 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

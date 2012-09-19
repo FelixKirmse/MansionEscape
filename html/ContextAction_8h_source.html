@@ -47,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -82,25 +84,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00002"></a>00002 <span class="preprocessor"></span>
 <a name="l00003"></a>00003 <span class="keyword">namespace </span>MansionEscape
 <a name="l00004"></a>00004 {
-<a name="l00005"></a><a class="code" href="structContectAction.html">00005</a> <span class="keyword">class </span>Item;
+<a name="l00005"></a>00005 <span class="keyword">class </span>Item;
 <a name="l00006"></a>00006 
-<a name="l00012"></a><a class="code" href="structMansionEscape_1_1ContextAction.html">00012</a> <span class="keyword">struct </span><a class="code" href="structMansionEscape_1_1ContextAction.html">ContextAction</a>
-<a name="l00013"></a>00013 {
-<a name="l00018"></a><a class="code" href="structMansionEscape_1_1ContextAction.html#a5b0f2feec265816fe73a9bbec7a19222">00018</a>   <span class="keyword">enum</span> <a class="code" href="structMansionEscape_1_1ContextAction.html#a5b0f2feec265816fe73a9bbec7a19222" title="The type of context to use the item in.">Type</a>
-<a name="l00019"></a>00019   {
-<a name="l00020"></a>00020     Use,
-<a name="l00021"></a>00021     Take
-<a name="l00022"></a>00022   } <a class="code" href="structMansionEscape_1_1ContextAction.html#a5d40c08399830a05fe973a9d3e40f4d8">ContextType</a>; 
-<a name="l00023"></a><a class="code" href="structMansionEscape_1_1ContextAction.html#a186eef2eeee01babc2aa97a00f5425db">00023</a>   Item <span class="keyword">const</span>&amp; <a class="code" href="structMansionEscape_1_1ContextAction.html#a186eef2eeee01babc2aa97a00f5425db">ContextItem</a>; 
-<a name="l00024"></a>00024 };
-<a name="l00025"></a>00025 }
-</pre></div></div><!-- contents -->
+<a name="l00016"></a>00016 <span class="keyword">struct </span>ContextAction
+<a name="l00017"></a>00017 {
+<a name="l00022"></a>00022   <span class="keyword">enum</span> Type
+<a name="l00023"></a>00023   {
+<a name="l00024"></a>00024     Use,
+<a name="l00025"></a>00025     Take
+<a name="l00026"></a>00026   } ContextType; 
+<a name="l00027"></a>00027   Item <span class="keyword">const</span>&amp; ContextItem; 
+<a name="l00028"></a>00028 };</pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 17 2012 16:20:04 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 19 2012 15:53:11 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
