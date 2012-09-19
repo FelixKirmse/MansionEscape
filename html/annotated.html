@@ -47,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,6 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -81,12 +84,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><table>
-  <tr><td class="indexkey"><a class="el" href="structContectAction.html">ContectAction</a></td><td class="indexvalue">Struct that associates a context to an item, allowing for multiple interaction types with the environment </td></tr>
-  <tr><td class="indexkey"><a class="el" href="structMansionEscape_1_1ContextAction.html">MansionEscape::ContextAction</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1Controller.html">MansionEscape::Controller</a></td><td class="indexvalue">Controls game state </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1DBModel.html">MansionEscape::DBModel</a></td><td class="indexvalue"><a class="el" href="classMansionEscape_1_1IModel.html" title="Interface that exposes functions for saving and loading data.">IModel</a> that uses SQLite to save data </td></tr>
+  <tr><td class="indexkey"><a class="el" href="structMansionEscape_1_1GameOptions.html">MansionEscape::GameOptions</a></td><td class="indexvalue">Struct that controls how the game will be started </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1GUI.html">MansionEscape::GUI</a></td><td class="indexvalue">Provides a GUI to the user to play the game </td></tr>
   <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1IController.html">MansionEscape::IController</a></td><td class="indexvalue">Interface that exposes functions to control game state </td></tr>
-  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1Room.html">MansionEscape::Room</a></td><td class="indexvalue">The <a class="el" href="classMansionEscape_1_1Room.html" title="The Room class.   This class is currently changes heavily and fast.">Room</a> class. <br/>
- This class is currently changes heavily and fast </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1IModel.html">MansionEscape::IModel</a></td><td class="indexvalue">Interface that exposes functions for saving and loading data </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1Launcher.html">MansionEscape::Launcher</a></td><td class="indexvalue">Class used to display and manage the <a class="el" href="classMansionEscape_1_1Launcher.html" title="Class used to display and manage the Launcher menu.">Launcher</a> menu </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1Room.html">MansionEscape::Room</a></td><td class="indexvalue">Represent a Room. This class currently changes heavily and fast </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1TUI.html">MansionEscape::TUI</a></td><td class="indexvalue">Provides a text-based UI to control the game </td></tr>
   <tr><td class="indexkey"><a class="el" href="structMansionEscape_1_1UIPackage.html">MansionEscape::UIPackage</a></td><td class="indexvalue">Bundles all required data to display the current game state </td></tr>
+  <tr><td class="indexkey"><a class="el" href="classMansionEscape_1_1XMLModel.html">MansionEscape::XMLModel</a></td><td class="indexvalue"><a class="el" href="classMansionEscape_1_1IModel.html" title="Interface that exposes functions for saving and loading data.">IModel</a> implementation that saves data in XML-Format </td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -94,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 17 2012 16:20:04 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 19 2012 15:53:11 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

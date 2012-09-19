@@ -47,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,31 +92,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 <span class="keyword">struct </span>UIPackage;
 <a name="l00011"></a>00011 <span class="keyword">struct </span>ContextAction;
 <a name="l00012"></a>00012 
-<a name="l00018"></a><a class="code" href="classMansionEscape_1_1IController.html">00018</a> <span class="keyword">class </span><a class="code" href="classMansionEscape_1_1IController.html" title="Interface that exposes functions to control game state.">IController</a>
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00021"></a>00021   <span class="keyword">virtual</span> ~<a class="code" href="classMansionEscape_1_1IController.html" title="Interface that exposes functions to control game state.">IController</a>() {}
-<a name="l00022"></a>00022 
-<a name="l00031"></a>00031   <span class="keyword">virtual</span> <a class="code" href="structMansionEscape_1_1UIPackage.html" title="Bundles all required data to display the current game state.">UIPackage</a> <span class="keyword">const</span>&amp; <a class="code" href="classMansionEscape_1_1IController.html#a9fc7e98f904ce8bd80b2b79c694f7bb3" title="Retrieves the reference to the current UIPackage.">GetUIPackage</a>() <span class="keyword">const</span> = 0;
-<a name="l00032"></a>00032 
-<a name="l00037"></a>00037   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#aa947853300c86853b9ab7a9f90c14ed9" title="Attempt to advance to the next room by going in the current direction.">GoForward</a>() = 0;
-<a name="l00042"></a>00042   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a7e63ff0852f24f6f32b76a155ed422c8" title="Turn left.">TurnLeft</a>() = 0;
-<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a37f625f80c98cb00ca7c1c530f21fd02" title="Turn right.">TurnRight</a>() = 0;
-<a name="l00048"></a>00048 
-<a name="l00054"></a>00054   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a6009c3c4adab8bdeb8b7a0b3e944b46d" title="Attempt to use an Item.">UseItem</a>(Item <span class="keyword">const</span>&amp; item) = 0;
-<a name="l00060"></a>00060   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a3c9e2216e8de76641068b74ea778af52" title="Make a comment about an Item.">CommentOnItem</a>(Item <span class="keyword">const</span>&amp; item) = 0;
-<a name="l00061"></a>00061 
-<a name="l00066"></a>00066   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a14da67e3f60fc7ae3412a435394044eb" title="Inspect the your current FoV more thouroughly to potentially unlock more ContextActions.">Inspect</a>() = 0;
-<a name="l00072"></a>00072   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a7dc939ebed750a19ca7e18a7d0071b85" title="Attempt to perform a ContextAction.">PerformContextAction</a>(<a class="code" href="structMansionEscape_1_1ContextAction.html">ContextAction</a> action) = 0;
-<a name="l00073"></a>00073 };
-<a name="l00074"></a>00074 }
+<a name="l00022"></a><a class="code" href="classMansionEscape_1_1IController.html">00022</a> <span class="keyword">class </span><a class="code" href="classMansionEscape_1_1IController.html" title="Interface that exposes functions to control game state.">IController</a>
+<a name="l00023"></a>00023 {
+<a name="l00024"></a>00024 <span class="keyword">public</span>:
+<a name="l00025"></a>00025   <span class="keyword">virtual</span> ~<a class="code" href="classMansionEscape_1_1IController.html" title="Interface that exposes functions to control game state.">IController</a>() {}
+<a name="l00026"></a>00026 
+<a name="l00035"></a>00035   <span class="keyword">virtual</span> <a class="code" href="structMansionEscape_1_1UIPackage.html" title="Bundles all required data to display the current game state.">UIPackage</a> <span class="keyword">const</span>&amp; <a class="code" href="classMansionEscape_1_1IController.html#a9fc7e98f904ce8bd80b2b79c694f7bb3" title="Retrieves the reference to the current UIPackage.">GetUIPackage</a>() <span class="keyword">const</span> = 0;
+<a name="l00036"></a>00036 
+<a name="l00041"></a>00041   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#aa947853300c86853b9ab7a9f90c14ed9" title="Attempt to advance to the next room by going in the current direction.">GoForward</a>() = 0;
+<a name="l00046"></a>00046   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a7e63ff0852f24f6f32b76a155ed422c8" title="Turn left.">TurnLeft</a>() = 0;
+<a name="l00051"></a>00051   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a37f625f80c98cb00ca7c1c530f21fd02" title="Turn right.">TurnRight</a>() = 0;
+<a name="l00052"></a>00052 
+<a name="l00058"></a>00058   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a6009c3c4adab8bdeb8b7a0b3e944b46d" title="Attempt to use an Item.">UseItem</a>(Item <span class="keyword">const</span>&amp; item) = 0;
+<a name="l00064"></a>00064   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a3c9e2216e8de76641068b74ea778af52" title="Make a comment about an Item.">CommentOnItem</a>(Item <span class="keyword">const</span>&amp; item) = 0;
+<a name="l00065"></a>00065 
+<a name="l00070"></a>00070   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a14da67e3f60fc7ae3412a435394044eb" title="Inspect the your current FoV more thouroughly to potentially unlock more ContextActions.">Inspect</a>() = 0;
+<a name="l00076"></a>00076   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classMansionEscape_1_1IController.html#a7dc939ebed750a19ca7e18a7d0071b85" title="Attempt to perform a ContextAction.">PerformContextAction</a>(ContextAction action) = 0;
+<a name="l00077"></a>00077 };
+<a name="l00079"></a>00079 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 17 2012 16:20:04 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 19 2012 15:53:11 for MansionEscape by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

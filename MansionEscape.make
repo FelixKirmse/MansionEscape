@@ -64,10 +64,12 @@ ifeq ($(config),release)
 endif
 
 OBJECTS := \
+	$(OBJDIR)/Launcher.o \
 	$(OBJDIR)/main.o \
 	$(OBJDIR)/Controller.o \
 	$(OBJDIR)/XMLModel.o \
 	$(OBJDIR)/DBModel.o \
+	$(OBJDIR)/moc_GUI.o \
 	$(OBJDIR)/GUI.o \
 	$(OBJDIR)/TUI.o \
 
@@ -130,6 +132,9 @@ $(GCH): $(PCH)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 endif
 
+$(OBJDIR)/Launcher.o: src/MansionEscape/Launcher.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/main.o: src/MansionEscape/main.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
@@ -140,6 +145,9 @@ $(OBJDIR)/XMLModel.o: src/MansionEscape/Model/XMLModel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/DBModel.o: src/MansionEscape/Model/DBModel.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/moc_GUI.o: src/MansionEscape/View/moc_GUI.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/GUI.o: src/MansionEscape/View/GUI.cpp
