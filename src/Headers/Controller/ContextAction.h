@@ -26,5 +26,5 @@ struct ContextAction
   } ContextType; /*!< What you want to do with the item.\n NOTE: The \a Use ContextType is not used to use an item in your inventory, but rather to use an environmental item in the room.*/
   Item const& ContextItem; /*!< The Item to perform the action on/with. */
 };
-/*!\}*
+/*!\}*/
 }
