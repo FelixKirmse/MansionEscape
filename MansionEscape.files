@@ -20,3 +20,7 @@ src/Headers/GameOptions.h
 src/Headers/Launcher.h
 src/MansionEscape/Launcher.cpp
 src/MansionEscape/LauncherConstants.inc
+src/Headers/Controller/RoomPerspective.h
+src/Headers/Model/Progress.h
+src/MansionEscape/Model/Progress.cpp
+src/Headers/Model/Inventory.h
