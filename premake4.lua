@@ -1,4 +1,6 @@
 local QT_LIBRARIES = "-lQtCore -lQtGui"
+local SQLITE = "-lsqlite3"
+local BOOST_LIBRARIES = "-lboost_system -lboost_filesystem -lboost_serialization"
 
 solution "MansionEscape"
     configurations { "Debug", "Release" }
@@ -19,4 +21,4 @@ solution "MansionEscape"
         targetdir "build"
         files { "src/MansionEscape/**.cpp" }
         buildoptions { "-std=c++11" }
-        linkoptions { QT_LIBRARIES }
+        linkoptions { QT_LIBRARIES, SQLITE, BOOST_LIBRARIES }

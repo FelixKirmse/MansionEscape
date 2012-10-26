@@ -24,3 +24,8 @@ src/Headers/Controller/RoomPerspective.h
 src/Headers/Model/Progress.h
 src/MansionEscape/Model/Progress.cpp
 src/Headers/Model/Inventory.h
+src/Headers/Model/PlayerData.h
+src/Headers/Model/XMLStorageFunctions.h
+src/Headers/Model/Item.h
+src/MansionEscape/Model/Include/DBModelConstants.inc
+src/MansionEscape/Model/PlayerData.cpp

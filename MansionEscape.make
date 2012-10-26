@@ -28,7 +28,7 @@ ifeq ($(config),debug)
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -ffast-math -g -std=c++11
   CXXFLAGS  += $(CFLAGS) 
-  LDFLAGS   += -lQtCore -lQtGui
+  LDFLAGS   += -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization
   LIBS      += 
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
@@ -50,7 +50,7 @@ ifeq ($(config),release)
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -ffast-math -O2 -std=c++11
   CXXFLAGS  += $(CFLAGS) 
-  LDFLAGS   += -s -lQtCore -lQtGui
+  LDFLAGS   += -s -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization
   LIBS      += 
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
@@ -68,7 +68,9 @@ OBJECTS := \
 	$(OBJDIR)/main.o \
 	$(OBJDIR)/Controller.o \
 	$(OBJDIR)/XMLModel.o \
+	$(OBJDIR)/PlayerData.o \
 	$(OBJDIR)/DBModel.o \
+	$(OBJDIR)/Progress.o \
 	$(OBJDIR)/moc_GUI.o \
 	$(OBJDIR)/GUI.o \
 	$(OBJDIR)/TUI.o \
@@ -144,7 +146,13 @@ $(OBJDIR)/Controller.o: src/MansionEscape/Controller/Controller.cpp
 $(OBJDIR)/XMLModel.o: src/MansionEscape/Model/XMLModel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/PlayerData.o: src/MansionEscape/Model/PlayerData.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/DBModel.o: src/MansionEscape/Model/DBModel.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/Progress.o: src/MansionEscape/Model/Progress.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/moc_GUI.o: src/MansionEscape/View/moc_GUI.cpp

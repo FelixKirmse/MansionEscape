@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <vector>
+#include <string>
 
 namespace MansionEscape
 {
@@ -9,7 +10,10 @@ class Item;
 class Inventory
 {
 public:
-  typedef std::shared_ptr<Item> ItemPtr;
-  typedef std::vector<ItemPtr> ItemVec;
+  typedef std::vector<Item*> ItemVec;
+
+  ItemVec& GetItems() const;
+
+  void AddItemFromLabel(std::string label);
 };
 }

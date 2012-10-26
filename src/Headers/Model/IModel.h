@@ -7,8 +7,7 @@ namespace MansionEscape
   \addtogroup Model
   \{
 */
-class Progress;
-class Inventory;
+class PlayerData;
 /*!
   \brief Interface that exposes functions for saving and loading data
   \interface IModel Model/IModel.h
@@ -22,9 +21,7 @@ public:
   virtual void Load() = 0;
   virtual void Delete() = 0;
 
-  virtual Progress& GetProgress() = 0;
-  virtual Inventory& GetInventory() = 0;
-  virtual void SetCurrentRoom(std::string const& label) = 0;
+  virtual PlayerData& GetPlayerData() = 0;
 };
 /*!\}*/
 }
