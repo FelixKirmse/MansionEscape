@@ -127,10 +127,10 @@ bool Launcher::SaveDeleteUpdate(char input)
   switch(input)
   {
   case 'a':
-    // TODO XML Spielstand löschen
+    XMLModel().Delete();
     break;
   case 'b':
-    // TODO DB Spielstand löschen
+    DBModel().Delete();
     break;
 
   case 'q':
