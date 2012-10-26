@@ -1,5 +1,6 @@
 #pragma once
 #include "Model/IModel.h"
+#include "Model/PlayerData.h"
 
 namespace MansionEscape
 {
@@ -13,6 +14,20 @@ namespace MansionEscape
 */
 class XMLModel : public IModel
 {
+public:
+  XMLModel();
+
+  void Save();
+  void Load();
+  void Delete();
+
+  PlayerData& GetPlayerData();
+
+private:
+  PlayerData _playerData;
+
+  static std::string const XMLDir;
+  static std::string const XMLFile;
 };
 /*!\}*/
 }

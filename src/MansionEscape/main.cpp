@@ -4,11 +4,17 @@
 #include "Controller/Controller.h"
 #include "Launcher.h"
 #include "GameOptions.h"
+#include <boost/filesystem.hpp>
 
 int main(int argc, char** argv)
 {
   using namespace std;
   using namespace MansionEscape;
+  using namespace boost::filesystem;
+
+  path profileDir("~/.mansionEscape");
+  if(!exists(profileDir))
+    create_directory(profileDir);
 
   Launcher launcher;
   GameOptions opts = launcher.GetOptions();
