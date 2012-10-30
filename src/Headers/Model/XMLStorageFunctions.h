@@ -10,57 +10,16 @@ namespace boost
 {
 namespace serialization
 {
-
-template<class Archive>
-void save(Archive& ar, MansionEscape::Progress const& progress, unsigned int const version)
-{
-  ar & BOOST_SERIALIZATION_NVP(progress.GetFlags());
-}
-
-template<class Archive>
-void load(Archive& ar, MansionEscape::Progress& progress, unsigned int const version)
-{
-  MansionEscape::Progress::FlagMap flagMap;
-  ar & BOOST_SERIALIZATION_NVP(flagMap);
-  progress.SetFlags(flagMap);
-}
-
-template<class Archive>
-void serialize(Archive& ar, MansionEscape::Progress& progress, unsigned int const version)
-{
-  boost::serialization::split_free(ar, progress, version);
-}
-
-template<class Archive>
-void save(Archive& ar, MansionEscape::Item const& item, unsigned int const version)
-{
-  ar & BOOST_SERIALIZATION_NVP(item.GetLabel());
-}
-
-template<class Archive>
-void load(Archive& ar, MansionEscape::Item& item, unsigned int const version)
-{
-  std::string label;
-  ar & BOOST_SERIALIZATION_NVP(label);
-  item.LoadItemFromLabel(label);
-}
-
-template<class Archive>
-void serialize(Archive& ar, MansionEscape::Item& item, unsigned int const version)
-{
-  boost::serialization::split_free(ar, item, version);
-}
-
 template<class Archive>
 void save(Archive& ar, MansionEscape::Inventory const& inventory, const unsigned int version)
 {
   MansionEscape::Inventory::ItemVec& items(inventory.GetItems());
   size_t size = items.size();
-  ar & BOOST_SERIALIZATION_NVP(size);
+  ar & make_nvp("size", size);
 
   for(auto* item : inventory.GetItems())
   {
-    ar & BOOST_SERIALIZATION_NVP(item->GetLabel());
+    ar & make_nvp("item", item->GetLabel());
   }
 }
 
@@ -68,12 +27,12 @@ template<class Archive>
 void load(Archive& ar, MansionEscape::Inventory& inventory, const unsigned int version)
 {
   size_t size;
-  ar & BOOST_SERIALIZATION_NVP(size);
+  ar & make_nvp("size", size);
   for(size_t i = 0; i < size; ++i)
   {
-    std::string label;
-    ar & BOOST_SERIALIZATION_NVP(label);
-    inventory.AddItemFromLabel(label);
+    std::string itemLabel;
+    ar & make_nvp("item", itemLabel);
+    inventory.AddItemFromLabel(itemLabel);
   }
 }
 
@@ -86,25 +45,27 @@ void serialize(Archive& ar, MansionEscape::Inventory& inventory, unsigned const 
 template<class Archive>
 void save(Archive& ar, MansionEscape::PlayerData const& playerData, unsigned int const version)
 {
-  ar & BOOST_SERIALIZATION_NVP(playerData.GetProgress());
-  ar & BOOST_SERIALIZATION_NVP(playerData.GetInventory());
-  ar & BOOST_SERIALIZATION_NVP(playerData.GetRoomLabel());
+  ar & make_nvp("flags", playerData.GetProgress().GetFlags());
+  ar & make_nvp("inventory", playerData.GetInventory());
+  ar & make_nvp("roomlabel", playerData.GetRoomLabel());
 }
 
 template<class Archive>
 void load(Archive& ar, MansionEscape::PlayerData& playerData, unsigned int const version)
 {
   using namespace MansionEscape;
+  Progress::FlagMap flagMap;
+  ar & make_nvp("flags", flagMap);
   Progress progress;
-  ar & BOOST_SERIALIZATION_NVP(progress);
+  progress.SetFlags(flagMap);
   playerData.SetProgress(progress);
 
   Inventory inventory;
-  ar & BOOST_SERIALIZATION_NVP(inventory);
+  ar & make_nvp("inventory", inventory);
   playerData.SetInventory(inventory);
 
   std::string roomLabel;
-  ar & BOOST_SERIALIZATION_NVP(roomLabel);
+  ar & make_nvp("roomlabel", roomLabel);
   playerData.SetRoomLabel(roomLabel);
 }
 

@@ -7,6 +7,7 @@ namespace MansionEscape
 class Item
 {
 public:
+  Item();
   Item(std::string const& label);
   std::string const& GetLabel() const;
   void LoadItemFromLabel(std::string const& label);

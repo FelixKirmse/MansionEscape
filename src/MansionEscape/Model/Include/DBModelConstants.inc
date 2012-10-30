@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS
   (
       id UNSIGNED INTEGER PRIMARY KEY ASC,
       flagname VARCHAR,
-      isset INTEGER
+      isset BOOLEAN
   );
 )");
 

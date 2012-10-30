@@ -66,6 +66,8 @@ endif
 OBJECTS := \
 	$(OBJDIR)/Launcher.o \
 	$(OBJDIR)/main.o \
+	$(OBJDIR)/ContextAction.o \
+	$(OBJDIR)/RoomPerspective.o \
 	$(OBJDIR)/Controller.o \
 	$(OBJDIR)/XMLModel.o \
 	$(OBJDIR)/PlayerData.o \
@@ -138,6 +140,12 @@ $(OBJDIR)/Launcher.o: src/MansionEscape/Launcher.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/main.o: src/MansionEscape/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/ContextAction.o: src/MansionEscape/Controller/ContextAction.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/RoomPerspective.o: src/MansionEscape/Controller/RoomPerspective.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Controller.o: src/MansionEscape/Controller/Controller.cpp

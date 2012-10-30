@@ -15,5 +15,6 @@ public:
   ItemVec& GetItems() const;
 
   void AddItemFromLabel(std::string label);
+  void RemoveItemFromLabel(std::string label);
 };
 }

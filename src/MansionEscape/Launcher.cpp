@@ -69,7 +69,6 @@ void Launcher::DisplayMenu()
     cout << SelectModelText;
     break;
   }
-
   cout << endl << "Ihre Auswahl: ";
 }
 

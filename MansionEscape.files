@@ -12,7 +12,6 @@ src/Headers/View/GUI.h
 src/Headers/View/TUI.h
 src/Headers/Controller/IController.h
 src/Headers/Controller/UIPackage.h
-src/Headers/Controller/Room.h
 src/Headers/Controller/ContextAction.h
 premake4.lua
 src/Headers/View/GUI.ui
@@ -29,3 +28,7 @@ src/Headers/Model/XMLStorageFunctions.h
 src/Headers/Model/Item.h
 src/MansionEscape/Model/Include/DBModelConstants.inc
 src/MansionEscape/Model/PlayerData.cpp
+src/Headers/Controller/Inline/ContextAction.inl
+src/MansionEscape/Controller/ContextAction.cpp
+src/Headers/Controller/Inline/RoomPerspective.inl
+src/MansionEscape/Controller/RoomPerspective.cpp

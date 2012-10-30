@@ -1,30 +1,40 @@
 #pragma once
+#include <vector>
+#include <string>
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/vector.hpp>
 
 namespace MansionEscape
 {
-class Item;
+class Progress;
+class Inventory;
 
-/*!
- \addtogroup Controller
- \{
-*/
-/*!
- \brief Struct that associates a context to an item, allowing for multiple interaction types with the environment.
-
- \struct ContextAction Controller/ContextAction.h
-*/
-struct ContextAction
+class ContextAction
 {
-/*!
- \brief The type of context to use the item in.
+public:
+  typedef std::vector<std::string> StringVec;
 
-*/
-  enum Type
-  {
-    Use,
-    Take
-  } ContextType; /*!< What you want to do with the item.\n NOTE: The \a Use ContextType is not used to use an item in your inventory, but rather to use an environmental item in the room.*/
-  Item const& ContextItem; /*!< The Item to perform the action on/with. */
+  ContextAction();
+
+  bool CanPerform(Progress const& progress) const;
+  void Perform(Progress& progress, Inventory& inventory) const;
+  std::string const& GetReaction() const;
+
+private:
+  friend class boost::serialization::access;
+  template<class Archive>
+  void serialize(Archive& ar, unsigned int const version);
+
+  StringVec _requiresFlags;
+  StringVec _grantsFlags;
+  StringVec _removesFlags;
+
+  StringVec _removesItems;
+  StringVec _grantsItems;
+
+  std::string _reaction;
+  std::string _label;
 };
-/*!\}*/
+
+#include "Inline/ContextAction.inl"
 }
