@@ -16,7 +16,7 @@ bool RoomPerspective::CanAdvance(Progress const& progress) const
   for(auto& flag : _requiredFlagsForNextRoom)
     if(!progress.GetFlag(flag))
       return false;
-  return true;
+  return _nextRoom != "";
 }
 
 QPixmap const& RoomPerspective::GetPixMap(Progress const& progress) const
