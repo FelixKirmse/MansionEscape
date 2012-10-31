@@ -11,15 +11,15 @@ RoomPerspective::RoomPerspective()
 {
 }
 
-bool RoomPerspective::CanAdvance(Progress const& progress) const
+bool RoomPerspective::CanAdvance(Progress& progress) const
 {
   for(auto& flag : _requiredFlagsForNextRoom)
     if(!progress.GetFlag(flag))
       return false;
-  return _nextRoom != "";
+  return _nextRoom != ""; // Man kann nur advancen, wenn ein _nextRoom gesetzt ist.
 }
 
-QPixmap const& RoomPerspective::GetPixMap(Progress const& progress) const
+QPixmap const& RoomPerspective::GetPixMap(Progress& progress) const
 {
   for(size_t i = 0; i < _pictureConditions.size(); ++i)
   {
@@ -36,7 +36,7 @@ void RoomPerspective::LoadPictures()
   // Default Bild am Ende anhängen!
 }
 
-bool RoomPerspective::CheckPictureFlags(Progress const& progress, size_t key) const
+bool RoomPerspective::CheckPictureFlags(Progress& progress, size_t key) const
 {
   for(auto& flag : _pictureConditions[key])
     if(!progress.GetFlag(flag))

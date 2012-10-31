@@ -32,3 +32,11 @@ src/Headers/Controller/Inline/ContextAction.inl
 src/MansionEscape/Controller/ContextAction.cpp
 src/Headers/Controller/Inline/RoomPerspective.inl
 src/MansionEscape/Controller/RoomPerspective.cpp
+src/Headers/Model/ItemInfo.h
+src/MansionEscape/Model/ItemInfo.cpp
+src/MansionEscape/Model/Item.cpp
+src/Headers/Model/Inline/Item.inl
+src/Headers/Model/Inline/ItemInfo.inl
+src/Headers/Controller/AssetHolder.h
+src/MansionEscape/Controller/AssetHolder.cpp
+src/MansionEscape/Model/Inventory.cpp

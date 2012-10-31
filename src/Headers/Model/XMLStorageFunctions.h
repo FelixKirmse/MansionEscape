@@ -19,7 +19,7 @@ void save(Archive& ar, MansionEscape::Inventory const& inventory, const unsigned
 
   for(auto* item : inventory.GetItems())
   {
-    ar & make_nvp("item", item->GetLabel());
+    ar & make_nvp("item", item->GetName());
   }
 }
 
@@ -45,7 +45,8 @@ void serialize(Archive& ar, MansionEscape::Inventory& inventory, unsigned const 
 template<class Archive>
 void save(Archive& ar, MansionEscape::PlayerData const& playerData, unsigned int const version)
 {
-  ar & make_nvp("flags", playerData.GetProgress().GetFlags());
+  MansionEscape::Progress::FlagMap flags = playerData.GetProgress().GetFlags();
+  ar & make_nvp("flags", flags);
   ar & make_nvp("inventory", playerData.GetInventory());
   ar & make_nvp("roomlabel", playerData.GetRoomLabel());
 }
