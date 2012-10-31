@@ -32,7 +32,7 @@ void load(Archive& ar, MansionEscape::Inventory& inventory, const unsigned int v
   {
     std::string itemLabel;
     ar & make_nvp("item", itemLabel);
-    inventory.AddItemFromLabel(itemLabel);
+    inventory.AddItem(itemLabel);
   }
 }
 

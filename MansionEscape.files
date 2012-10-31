@@ -19,7 +19,6 @@ src/Headers/GameOptions.h
 src/Headers/Launcher.h
 src/MansionEscape/Launcher.cpp
 src/MansionEscape/LauncherConstants.inc
-src/Headers/Controller/RoomPerspective.h
 src/Headers/Model/Progress.h
 src/MansionEscape/Model/Progress.cpp
 src/Headers/Model/Inventory.h
@@ -30,8 +29,6 @@ src/MansionEscape/Model/Include/DBModelConstants.inc
 src/MansionEscape/Model/PlayerData.cpp
 src/Headers/Controller/Inline/ContextAction.inl
 src/MansionEscape/Controller/ContextAction.cpp
-src/Headers/Controller/Inline/RoomPerspective.inl
-src/MansionEscape/Controller/RoomPerspective.cpp
 src/Headers/Model/ItemInfo.h
 src/MansionEscape/Model/ItemInfo.cpp
 src/MansionEscape/Model/Item.cpp
@@ -40,3 +37,6 @@ src/Headers/Model/Inline/ItemInfo.inl
 src/Headers/Controller/AssetHolder.h
 src/MansionEscape/Controller/AssetHolder.cpp
 src/MansionEscape/Model/Inventory.cpp
+src/Headers/Controller/RoomView.h
+src/Headers/Controller/Inline/RoomView.inl
+src/MansionEscape/Controller/RoomView.cpp

@@ -11,7 +11,7 @@ namespace MansionEscape
 {
 class Progress;
 
-class RoomPerspective
+class RoomView
 {
 public:
   typedef std::vector<ContextAction> ActionVec;
@@ -19,17 +19,20 @@ public:
   typedef std::vector<FlagVec> FlagVecVec;
   typedef std::vector<QPixmap> PixVec;
 
-  RoomPerspective();
+  RoomView();
 
   bool CanAdvance(Progress& progress) const;
   QPixmap const& GetPixMap(Progress& progress) const;
 
   std::string const& GetNextRoom() const;
   std::string const& GetDescription() const;
-  std::string const& GetLabel() const;
+  std::string const& GetViewLabel() const;
+  std::string const& GetRoomLabel() const;
+  std::string const& GetFailReaction() const;
+  std::string const& GetInspectionString() const;
   ActionVec const& GetContextActions() const;
 
-//private:
+private:
   friend class boost::serialization::access;
 
   template<class Archive>
@@ -44,9 +47,12 @@ public:
   ActionVec _contextActions;
   std::string _description;
   std::string _nextRoom;
+  std::string _inspectionString;
+  std::string _failReaction;
   FlagVec _requiredFlagsForNextRoom;
 
   std::string _label;
+  std::string _roomLabel;
 
   FlagVecVec _pictureConditions;
   PixVec _pictures;
@@ -54,5 +60,5 @@ public:
   BOOST_SERIALIZATION_SPLIT_MEMBER();
 };
 
-#include "Inline/RoomPerspective.inl"
+#include "Inline/RoomView.inl"
 }

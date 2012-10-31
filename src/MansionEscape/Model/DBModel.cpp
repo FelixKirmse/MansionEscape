@@ -70,7 +70,7 @@ void DBModel::Load()
 
   for(auto& row : result)
   {
-    inventory.AddItemFromLabel(row[0]);
+    inventory.AddItem(row[0]);
   }
 
   query << "SELECT flagname, isset FROM " << ProgressTable << ";";

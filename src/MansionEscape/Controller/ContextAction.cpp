@@ -27,10 +27,10 @@ void ContextAction::Perform(Progress& progress, Inventory& inventory) const
     progress.SetFlag(flag, false);
 
   for(auto& item : _removesItems)
-    inventory.RemoveItemFromLabel(item);
+    inventory.RemoveItem(item, progress);
 
   for(auto& item : _grantsItems)
-    inventory.AddItemFromLabel(item);
+    inventory.AddItem(item, progress);
 }
 
 std::string const& ContextAction::GetReaction() const

@@ -6,15 +6,19 @@
 namespace MansionEscape
 {
 class Item;
+class Progress;
 
 class Inventory
 {
 public:
-  typedef std::vector<Item*> ItemVec;
+  typedef std::vector<std::string> ItemVec;
 
-  ItemVec& GetItems() const;
+  ItemVec const& GetItems() const;
 
-  void AddItemFromLabel(std::string label);
-  void RemoveItemFromLabel(std::string label);
+  void AddItem(std::string const& label, Progress& progress);
+  void RemoveItem(std::string const& label, Progress& progress);
+
+private:
+  ItemVec _items;
 };
 }
