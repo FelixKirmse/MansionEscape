@@ -15,7 +15,7 @@ public:
   bool GetFlag(std::string const& flag) const;
   void SetFlag(std::string const& flag, bool value);
 
-  FlagMap& GetFlags() const;
+  FlagMap const& GetFlags() const;
   void SetFlags(FlagMap const& newMap);
 
 private:

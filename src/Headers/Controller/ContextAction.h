@@ -16,11 +16,11 @@ public:
 
   ContextAction();
 
-  bool CanPerform(Progress const& progress) const;
+  bool CanPerform(Progress& progress) const;
   void Perform(Progress& progress, Inventory& inventory) const;
   std::string const& GetReaction() const;
 
-private:
+//private:
   friend class boost::serialization::access;
   template<class Archive>
   void serialize(Archive& ar, unsigned int const version);

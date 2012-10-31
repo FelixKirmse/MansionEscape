@@ -10,7 +10,7 @@ ContextAction::ContextAction()
 {
 }
 
-bool ContextAction::CanPerform(Progress const& progress) const
+bool ContextAction::CanPerform(Progress& progress) const
 {
   for(auto& flag : _requiresFlags)
     if(!progress.GetFlag(flag))

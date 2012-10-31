@@ -21,15 +21,15 @@ public:
 
   RoomPerspective();
 
-  bool CanAdvance(Progress const& progress) const;
-  QPixmap const& GetPixMap(Progress const& progress) const;
+  bool CanAdvance(Progress& progress) const;
+  QPixmap const& GetPixMap(Progress& progress) const;
 
   std::string const& GetNextRoom() const;
   std::string const& GetDescription() const;
   std::string const& GetLabel() const;
   ActionVec const& GetContextActions() const;
 
-private:
+//private:
   friend class boost::serialization::access;
 
   template<class Archive>
@@ -39,7 +39,7 @@ private:
   void load(Archive& ar, unsigned int const version);
 
   void LoadPictures();
-  bool CheckPictureFlags(Progress const& progress, size_t key) const;
+  bool CheckPictureFlags(Progress& progress, size_t key) const;
 
   ActionVec _contextActions;
   std::string _description;
