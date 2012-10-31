@@ -2,9 +2,12 @@
 #include "Controller/IController.h"
 #include "Model/IModel.h"
 #include <memory>
+#include "Controller/AssetHolder.h"
 
 namespace MansionEscape
 {
+class RoomView;
+
 /*!
   \addtogroup Controller
   \{
@@ -22,22 +25,33 @@ public:
   Controller(IModel* model);
 
   /* IController Functions Start */
-  UIPackage const& GetUIPackage() const;
-
-
   void GoForward();
   void TurnLeft();
   void TurnRight();
+  void PerformContextAction(ContextAction const& action);
 
-  void UseItem(Item const& item);
-  void CommentOnItem(Item const& item) ;
 
-  void Inspect();
-  void PerformContextAction(ContextAction action);
+  std::string const& GetRoomLabel() const;
+  std::string const& GetRoomDescription() const;
+  std::string const& GetRoomInspectString() const;
+  QPixmap const& GetRoomPicture() const;
+
+
+  ActionVec GetContextActions() const;
+  ItemVec GetInventoryItems() const;
+
+  Item const& GetItemByName(std::string const& name) const;
+  std::string const& GetFeedback() const;
   /* IController Functions End */
 
 private:
+  void ChangeRoom(std::string const& newRoom);
+
   ModelPtr _model;
+  AssetHolder _assetHolder;
+  PlayerData& _playerData;
+  std::string const* _feedBack;
+  RoomView const* _currentRoom;
 };
 /*!\}*/
 }

@@ -4,7 +4,7 @@
 
 namespace MansionEscape
 {
-class RoomPerspective;
+class RoomView;
 
 class Progress
 {

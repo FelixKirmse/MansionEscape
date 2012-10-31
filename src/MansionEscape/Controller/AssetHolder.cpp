@@ -14,14 +14,14 @@ AssetHolder::AssetHolder()
 {
 }
 
-Item const& AssetHolder::GetItem(std::string const& name)
+Item const& AssetHolder::GetItem(std::string const& name) const
 {
-  return _items[name];
+  return _items.find(name)->second;
 }
 
-RoomPerspective const& AssetHolder::GetRoom(std::string const& label)
+RoomView const& AssetHolder::GetRoom(std::string const& label) const
 {
-  return _rooms[label];
+  return _rooms.find(label)->second;
 }
 
 void AssetHolder::LoadAssets()
@@ -71,9 +71,9 @@ void AssetHolder::LoadRooms()
       ifstream roomConfig(roomPath.string());
       xml_iarchive ia(roomConfig);
 
-      RoomPerspective newRoom;
+      RoomView newRoom;
       ia >> BOOST_SERIALIZATION_NVP(newRoom);
-      _rooms[newRoom.GetLabel()] = newRoom;
+      _rooms[newRoom.GetViewLabel()] = newRoom;
     }
   }
 }

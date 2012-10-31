@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 #include "Model/Item.h"
-#include "Controller/RoomPerspective.h"
+#include "Controller/RoomView.h"
 
 namespace MansionEscape
 {
@@ -10,14 +10,14 @@ class AssetHolder
 {
 public:
   typedef std::map<std::string, Item> ItemMap;
-  typedef std::map<std::string, RoomPerspective> RoomMap;
+  typedef std::map<std::string, RoomView> RoomMap;
 
   AssetHolder();
 
   void LoadAssets();
 
-  Item const& GetItem(std::string const& name);
-  RoomPerspective const& GetRoom(std::string const& label);
+  Item const& GetItem(std::string const& name) const;
+  RoomView const& GetRoom(std::string const& label) const;
 
 private:
   void LoadRooms();

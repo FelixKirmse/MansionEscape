@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 #include <boost/archive/xml_iarchive.hpp>
 #include <fstream>
 #include <Model/Item.h>
-#include <Controller/RoomPerspective.h>
+#include <Controller/RoomView.h>
 #include <iostream>
 
 int main(int argc, char** argv)
@@ -52,8 +52,8 @@ int main(int argc, char** argv)
 
   QApplication app(argc, argv);
 
-  RoomPerspective room;
-  RoomPerspective::ActionVec contextActions;
+  RoomView room;
+  RoomView::ActionVec contextActions;
 
   ContextAction action1;
 

@@ -2,12 +2,12 @@
 #include <vector>
 #include <string>
 #include <array>
+#include <qt4/QtGui/QPixmap>
 
 namespace MansionEscape
 {
 class Item;
 class Inventory;
-struct UIPackage;
 struct ContextAction;
 
 /*!
@@ -22,58 +22,26 @@ struct ContextAction;
 class IController
 {
 public:
-  virtual ~IController() {}
+  typedef std::vector<ContextAction const*> ActionVec;
+  typedef std::vector<Item const*> ItemVec;
 
-  /*!
-   \brief Retrieves the reference to the current UIPackage.
-
-    Should be used after using any other functions of this interface
-    to get an updated state of the game.
-
-   \return UIPackage const&
-  */
-  virtual UIPackage const& GetUIPackage() const = 0;
-
-  /*!
-   \brief Attempt to advance to the next room by going in the current direction.
-
-  */
+  virtual ~IController() {} 
   virtual void GoForward() = 0;
-  /*!
-   \brief Turn left.
-
-  */
   virtual void TurnLeft() = 0;
-  /*!
-   \brief Turn right.
-
-  */
   virtual void TurnRight() = 0;
+  virtual void PerformContextAction(ContextAction const& action) = 0;
 
-  /*!
-   \brief Attempt to use an Item.
 
-   \param item The Item to use
-  */
-  virtual void UseItem(Item const& item) = 0;
-  /*!
-   \brief Make a comment about an Item.
+  virtual std::string const& GetRoomLabel() const = 0;
+  virtual std::string const& GetRoomDescription() const = 0;
+  virtual std::string const& GetRoomInspectString() const = 0;
+  virtual QPixmap const& GetRoomPicture() const = 0;
 
-   \param item The Item to comment on.
-  */
-  virtual void CommentOnItem(Item const& item) = 0;
+  virtual ActionVec GetContextActions() const = 0;
+  virtual ItemVec GetInventoryItems() const = 0;
+  virtual Item const& GetItemByName(std::string const& name) const = 0;
 
-  /*!
-   \brief Inspect the your current FoV more thouroughly to potentially unlock more ContextActions.
-
-  */
-  virtual void Inspect() = 0;
-  /*!
-   \brief Attempt to perform a ContextAction.
-
-   \param action The ContextAction to perform.
-  */
-  virtual void PerformContextAction(ContextAction action) = 0;
+  virtual std::string const& GetFeedback() const = 0;
 };
 /*!\}*/
 }
