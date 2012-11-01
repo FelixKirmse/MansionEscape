@@ -11,6 +11,7 @@ Controller::Controller(IModel* model)
 {
   _assetHolder.LoadAssets();
   _currentRoom = &_assetHolder.GetRoom(_playerData.GetRoomLabel());
+  _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
 }
 
 void Controller::ChangeRoom(std::string const& newRoom)
@@ -25,6 +26,7 @@ void Controller::GoForward()
     ChangeRoom(_currentRoom->GetNextRoom());
   else
     _feedBack = &_currentRoom->GetFailReaction();
+  _model->Save();
 }
 
 void Controller::TurnLeft()
@@ -34,7 +36,8 @@ void Controller::TurnLeft()
   char dir = *viewLabel.rbegin();
   char append = dir == 'N' ? 'W' : dir == 'W' ? 'S' : dir == 'S' ? 'E' : 'N';
 
-  ChangeRoom(_currentRoom->GetRoomLabel() + "_" + append);
+  ChangeRoom(_currentRoom->GetRoomLabel() + "-" + append);
+  _model->Save();
 }
 
 void Controller::TurnRight()
@@ -44,13 +47,15 @@ void Controller::TurnRight()
   char dir = *viewLabel.rbegin();
   char append = dir == 'N' ? 'E' : dir == 'E' ? 'S' : dir == 'S' ? 'W' : 'N';
 
-  ChangeRoom(_currentRoom->GetRoomLabel() + "_" + append);
+  ChangeRoom(_currentRoom->GetRoomLabel() + "-" + append);
+  _model->Save();
 }
 
 void Controller::PerformContextAction(ContextAction const& action)
 {
   action.Perform(_playerData.GetProgress(), _playerData.GetInventory());
   _feedBack = &action.GetReaction();
+  _model->Save();
 }
 
 std::string const& Controller::GetRoomLabel() const

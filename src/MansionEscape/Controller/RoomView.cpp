@@ -1,9 +1,14 @@
 #include "Controller/RoomView.h"
 #include "Model/Progress.h"
+#include <boost/filesystem.hpp>
+#include <boost/format.hpp>
 
 
 namespace MansionEscape
 {
+std::string const RoomView::RoomPathFormatString("content/rooms/%s/%s");
+
+
 RoomView::RoomView()
   : _contextActions(), _description("Invalid Room"), _nextRoom(""),
     _inspectionString("Invalid Room"),
@@ -35,8 +40,20 @@ QPixmap const& RoomView::GetPixMap(Progress& progress) const
 
 void RoomView::LoadPictures()
 {
-  // TODO Bilder laden anhand der _pictureConditions
-  // Default Bild am Ende anhängen!
+  using namespace boost::filesystem;
+  using namespace boost;
+  format pictureDir(RoomPathFormatString);
+  pictureDir
+      % _roomLabel
+      % _label;
+
+  directory_iterator end;
+  for(directory_iterator i(pictureDir.str()); i != end; ++i)
+  {
+    if(i->path().extension() == ".xml")
+      continue;
+    _pictures.push_back(QPixmap(i->path().string().c_str()));
+  }
 }
 
 bool RoomView::CheckPictureFlags(Progress& progress, size_t key) const

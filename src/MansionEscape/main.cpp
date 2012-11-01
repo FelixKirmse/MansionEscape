@@ -75,16 +75,25 @@ int main(int argc, char** argv)
   room._contextActions = contextActions;
   room._requiredFlagsForNextRoom = {"NEXTROOMFLAG1", "NEXTROOMFLAG2"};
   room._pictureConditions = {{"PICFLAGCONDITION1_1", "PICFLAGCONDITION1_2"},{"PICFLAGCONDITION2_1", "PICFLAGCONDITION3_2"}};
-  room._description = "Beschreibung des Raumes";
-  room._label = "Label des Raumes";
+  room._description = "Beschreibung des Raumes.\nHier ist ein Zeilenumbruch.";
+  room._label = "Vollständiges Label des Raumes, z.B. U-01-W";
+  room._roomLabel = "Label des Raumes, z.B. U-01";
   room._nextRoom = "Label des nächsten Raumes";
+  room._inspectionString = "Inspektionsstring des Raumes";
+  room._failReaction = "Dieser String wird angezeigt, wenn man nicht nach weiter gehen kann.";
 
   ofstream ofs("roomexample.xml");
   xml_oarchive oa(ofs);
   oa << make_nvp("room", room);
+/*
+  RoomView room;
+  ifstream ifs("roomexample.xml");
+  xml_iarchive ia(ifs);
+  ia >> make_nvp("room", room);
 
-
-
+  cout << room._description << endl;
+*/
+/*
   Item item;
   ItemInfo itemInfo;
 
@@ -92,12 +101,12 @@ int main(int argc, char** argv)
   itemInfo._name = "Hier kommt der Name hin!";
   item._itemInfo = itemInfo;
 
-  ofstream ofs("itemexample.xml");
-  xml_oarchive oa(ofs);
+  ofstream ofs2("itemexample.xml");
+  xml_oarchive oa2(ofs2);
 
-  oa << boost::serialization::make_nvp("item", item);
-
-
+  oa2 << boost::serialization::make_nvp("item", item);
+*/
+/*
 
   Item loadItem;
 
@@ -107,8 +116,8 @@ int main(int argc, char** argv)
   ia >> boost::serialization::make_nvp("item", loadItem);
 
   cout << loadItem.GetName() << endl << loadItem.GetCommentString() << endl;
-
+*/
+/*
   return 0;
 }
-
 */

@@ -13,13 +13,13 @@ namespace serialization
 template<class Archive>
 void save(Archive& ar, MansionEscape::Inventory const& inventory, const unsigned int version)
 {
-  MansionEscape::Inventory::ItemVec& items(inventory.GetItems());
+  MansionEscape::Inventory::ItemVec const& items(inventory.GetItems());
   size_t size = items.size();
   ar & make_nvp("size", size);
 
-  for(auto* item : inventory.GetItems())
+  for(auto const& item : inventory.GetItems())
   {
-    ar & make_nvp("item", item->GetName());
+    ar & make_nvp("item", item);
   }
 }
 
@@ -32,7 +32,7 @@ void load(Archive& ar, MansionEscape::Inventory& inventory, const unsigned int v
   {
     std::string itemLabel;
     ar & make_nvp("item", itemLabel);
-    inventory.AddItem(itemLabel);
+    //inventory.AddItem(itemLabel);
   }
 }
 
@@ -63,6 +63,7 @@ void load(Archive& ar, MansionEscape::PlayerData& playerData, unsigned int const
 
   Inventory inventory;
   ar & make_nvp("inventory", inventory);
+  inventory.SetProgress(&playerData.GetProgress());
   playerData.SetInventory(inventory);
 
   std::string roomLabel;
