@@ -17,7 +17,7 @@ public:
   std::string const& GetCommentString() const;
   QPixmap const& GetPixMap() const;
 
-private:
+//private:
   friend class boost::serialization::access;
 
   template<class Archive>

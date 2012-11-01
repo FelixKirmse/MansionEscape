@@ -32,7 +32,7 @@ public:
   std::string const& GetInspectionString() const;
   ActionVec const& GetContextActions() const;
 
-private:
+//private:
   friend class boost::serialization::access;
 
   template<class Archive>
@@ -56,6 +56,8 @@ private:
 
   FlagVecVec _pictureConditions;
   PixVec _pictures;
+
+  static std::string const RoomPathFormatString;
 
   BOOST_SERIALIZATION_SPLIT_MEMBER();
 };

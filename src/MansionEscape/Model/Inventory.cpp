@@ -9,21 +9,31 @@ Inventory::ItemVec const& Inventory::GetItems() const
   return _items;
 }
 
-void Inventory::AddItem(std::string const& label, Progress& progress)
+Inventory::ItemVec& Inventory::GetItems()
 {
-  _items.push_back(label);
-  progress.SetFlag("HAS" + label, true);
+  return _items;
 }
 
-void Inventory::RemoveItem(std::string const& label, Progress& progress)
+void Inventory::AddItem(std::string const& label)
 {
-  int pos(0);
-  for(;pos < _items.size(); ++pos)
-    if(_items[pos] == label)
+  _items.push_back(label);
+  _progress->SetFlag("HAS" + label, true);
+}
+
+void Inventory::RemoveItem(std::string const& label)
+{
+  ItemVec::iterator pos(0);
+  for(;pos != _items.end(); ++pos)
+    if(*pos == label)
       break;
   _items.erase(pos);
 
-  progress.SetFlag("HAS" + label, false);
+  _progress->SetFlag("HAS" + label, false);
+}
+
+void Inventory::SetProgress(Progress* progress)
+{
+  _progress = progress;
 }
 
 }

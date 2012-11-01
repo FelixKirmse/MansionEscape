@@ -2,12 +2,25 @@
 <!DOCTYPE boost_serialization>
 <boost_serialization signature="serialization::archive" version="9">
 <room class_id="0" tracking_level="0" version="0">
-	<_label>Label des Raumes</_label>
-	<_contextActions class_id="1" tracking_level="0" version="0">
+	<_roomLabel>Label des Raumes, z.B. U-01</_roomLabel>
+	<_label>Vollständiges Label des Raumes, z.B. U-01-W</_label>
+	<_description>Beschreibung des Raumes.
+Hier ist ein Zeilenumbruch.</_description>
+	<_nextRoom>Label des nächsten Raumes</_nextRoom>
+	<_failReaction>Dieser String wird angezeigt, wenn man nicht nach weiter gehen kann.</_failReaction>
+	<_requiredFlagsForNextRoom class_id="1" tracking_level="0" version="0">
 		<count>2</count>
 		<item_version>0</item_version>
-		<item class_id="2" tracking_level="0" version="0">
-			<_requiresFlags class_id="3" tracking_level="0" version="0">
+		<item>NEXTROOMFLAG1</item>
+		<item>NEXTROOMFLAG2</item>
+	</_requiredFlagsForNextRoom>
+	<_contextActions class_id="2" tracking_level="0" version="0">
+		<count>2</count>
+		<item_version>0</item_version>
+		<item class_id="3" tracking_level="0" version="0">
+			<_label>ContextAction-Label - Volle ContextAction</_label>
+			<_reaction>Hier kommt die Reaktion rein.</_reaction>
+			<_requiresFlags>
 				<count>3</count>
 				<item_version>0</item_version>
 				<item>REQUIRESFLAG1</item>
@@ -42,10 +55,10 @@
 				<item>GRANTITEM2</item>
 				<item>GRANTITEM3</item>
 			</_grantsItems>
-			<_reaction>Hier kommt die Reaktion rein.</_reaction>
-			<_label>ContextAction-Label - Volle ContextAction</_label>
 		</item>
 		<item>
+			<_label>Beispiel für Leere KontextAction</_label>
+			<_reaction>Geht immer und nix passiert</_reaction>
 			<_requiresFlags>
 				<count>0</count>
 				<item_version>0</item_version>
@@ -66,18 +79,8 @@
 				<count>0</count>
 				<item_version>0</item_version>
 			</_grantsItems>
-			<_reaction>Geht immer und nix passiert</_reaction>
-			<_label>Beispiel für Leere KontextAction</_label>
 		</item>
 	</_contextActions>
-	<_description>Beschreibung des Raumes</_description>
-	<_nextRoom>Label des nächsten Raumes</_nextRoom>
-	<_requiredFlagsForNextRoom>
-		<count>2</count>
-		<item_version>0</item_version>
-		<item>NEXTROOMFLAG1</item>
-		<item>NEXTROOMFLAG2</item>
-	</_requiredFlagsForNextRoom>
 	<_pictureConditions class_id="4" tracking_level="0" version="0">
 		<count>2</count>
 		<item_version>0</item_version>
