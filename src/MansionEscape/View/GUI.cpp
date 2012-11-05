@@ -10,12 +10,6 @@ GUI::GUI(IController* controller)
 {
   _ui->setupUi(this);
 }
-
-
-void GUI::on_TestButton_pressed()
-{
-  _ui->label->setText("Well Done!");
-}
 }
 
 

@@ -31,7 +31,6 @@ public:
 
 
 private slots:
-  void on_TestButton_pressed();
 
 private:
   UiPtr _ui;
