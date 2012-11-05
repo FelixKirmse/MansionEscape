@@ -1,4 +1,4 @@
-#include "Controller/RoomView.h"
+#include "Model/RoomView.h"
 #include "Model/Progress.h"
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>

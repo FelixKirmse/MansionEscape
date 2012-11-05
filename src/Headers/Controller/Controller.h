@@ -2,7 +2,6 @@
 #include "Controller/IController.h"
 #include "Model/IModel.h"
 #include <memory>
-#include "Controller/AssetHolder.h"
 
 namespace MansionEscape
 {
@@ -47,8 +46,7 @@ public:
 private:
   void ChangeRoom(std::string const& newRoom);
 
-  ModelPtr _model;
-  AssetHolder _assetHolder;
+  ModelPtr _model;  
   PlayerData& _playerData;
   std::string const* _feedBack;
   RoomView const* _currentRoom;

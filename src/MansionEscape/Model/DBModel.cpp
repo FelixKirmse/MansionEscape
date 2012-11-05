@@ -10,7 +10,7 @@ namespace MansionEscape
 #include "Include/DBModelConstants.inc"
 
 DBModel::DBModel()
-  : _playerData(), _database(0)
+  : BaseModel(), _database(0)
 {
   sqlite3_open(DBFile.c_str(), &_database);
 
@@ -29,15 +29,17 @@ void DBModel::Save()
   using namespace std;
   Delete();
 
+  PlayerData& playerData = GetPlayerData();
+
   stringstream query;
   query << "INSERT INTO " << PlayerDataTable << " (currentroom) VALUES (";
-  query << "'" << _playerData.GetRoomLabel() << "');";
+  query << "'" << playerData.GetRoomLabel() << "');";
   Query(query.str());
   ResetStream(query);
 
   query << "INSERT INTO " << InventoryTable << endl;
   query << "SELECT 'DUMMYITEM' AS label" << endl;
-  for(auto const& item : _playerData.GetInventory().GetItems())
+  for(auto const& item : playerData.GetInventory().GetItems())
     query << "UNION SELECT '" << item << "'" << endl;
 
   query << ";";
@@ -46,7 +48,7 @@ void DBModel::Save()
 
   query << "INSERT INTO " << ProgressTable << endl;
   query << "SELECT 'DUMMYFLAG' AS flagname, 1 AS isset)" << endl;
-  for(auto& flag : _playerData.GetProgress().GetFlags())
+  for(auto& flag : playerData.GetProgress().GetFlags())
     query << "UNION SELECT '" << flag.first << "', " << (flag.second ? 1 : 0) << endl;
 
   query << ";";
@@ -55,18 +57,19 @@ void DBModel::Save()
 
 void DBModel::Load()
 {
-  using namespace std;
+  using namespace std;  
+  PlayerData& playerData = GetPlayerData();
   stringstream query;
   query << "SELECT currentroom FROM " << PlayerDataTable << ";";
   QueryResult result = Query(query.str());
   ResetStream(query);
 
-  _playerData.SetRoomLabel(result[0][0]);
+  playerData.SetRoomLabel(result[0][0]);
 
   query << "SELECT label FROM " << InventoryTable << ";";
   result = Query(query.str());
   ResetStream(query);
-  Inventory& inventory = _playerData.GetInventory();
+  Inventory& inventory = playerData.GetInventory();
 
   for(auto& row : result)
   {
@@ -75,7 +78,7 @@ void DBModel::Load()
 
   query << "SELECT flagname, isset FROM " << ProgressTable << ";";
   result = Query(query.str());
-  Progress& progress = _playerData.GetProgress();
+  Progress& progress = playerData.GetProgress();
 
   for(auto& row : result)
   {
@@ -90,10 +93,6 @@ void DBModel::Delete()
   Query("DELETE FROM PlayerData;");
 }
 
-PlayerData& DBModel::GetPlayerData()
-{
-  return _playerData;
-}
 
 DBModel::QueryResult DBModel::Query(std::string const& query)
 {

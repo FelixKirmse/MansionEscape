@@ -1,4 +1,4 @@
-#include "Controller/ContextAction.h"
+#include "Model/ContextAction.h"
 #include "Model/Progress.h"
 #include "Model/Inventory.h"
 

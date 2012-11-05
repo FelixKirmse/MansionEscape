@@ -1,7 +1,5 @@
 #pragma once
-#include "Model/IModel.h"
-#include "Model/PlayerData.h"
-#include <string>
+#include "Model/BaseModel.h"
 #include <sqlite3.h>
 #include <vector>
 #include <sstream>
@@ -16,7 +14,7 @@ namespace MansionEscape
   \brief IModel that uses SQLite to save data
   \class DBModel Model/DBModel.h
 */
-class DBModel : public IModel
+class DBModel : public BaseModel
 {
 public:
   DBModel();
@@ -24,9 +22,7 @@ public:
 
   void Save();
   void Load();
-  void Delete();
-
-  PlayerData& GetPlayerData();
+  void Delete();  
 
 private:
   typedef std::vector<std::vector<std::string> > QueryResult;
@@ -36,7 +32,6 @@ private:
   void RecreateTables();
   void ResetStream(std::stringstream& stream);
 
-  PlayerData _playerData;
   sqlite3* _database;
 
   static std::string const DBDir;
@@ -48,8 +43,6 @@ private:
   static std::string const InventoryCreateQuery;
   static std::string const ProgressCreateQuery;
   static std::string const PlayerDataCreateQuery;
-
-
 };
 /*!\}*/
 }
