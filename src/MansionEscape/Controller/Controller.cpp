@@ -1,22 +1,22 @@
 #include "Controller/Controller.h"
-#include "Controller/ContextAction.h"
+#include "Model/ContextAction.h"
 #include "Model/PlayerData.h"
+#include "Model/RoomView.h"
 
 
 namespace MansionEscape
 {
 
 Controller::Controller(IModel* model)
-  : _model(model), _assetHolder(), _playerData(model->GetPlayerData())
-{
-  _assetHolder.LoadAssets();
-  _currentRoom = &_assetHolder.GetRoom(_playerData.GetRoomLabel());
+  : _model(model), _playerData(model->GetPlayerData())
+{  
+  _currentRoom = &_model->GetRoom(_playerData.GetRoomLabel());
   _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
 }
 
 void Controller::ChangeRoom(std::string const& newRoom)
 {
-  _currentRoom = &_assetHolder.GetRoom(newRoom);
+  _currentRoom = &_model->GetRoom(newRoom);
   _playerData.SetRoomLabel(newRoom);
 }
 
@@ -94,14 +94,14 @@ Controller::ItemVec Controller::GetInventoryItems() const
   ItemVec items;
   for(auto const& label : _playerData.GetInventory().GetItems())
   {
-    items.push_back(&_assetHolder.GetItem(label));
+    items.push_back(&_model->GetItem(label));
   }
   return items;
 }
 
 Item const& Controller::GetItemByName(std::string const& name) const
 {
-  return _assetHolder.GetItem(name);
+  return _model->GetItem(name);
 }
 
 std::string const& Controller::GetFeedback() const

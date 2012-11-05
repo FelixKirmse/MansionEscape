@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 #include "Model/Item.h"
-#include "Controller/RoomView.h"
+#include "Model/RoomView.h"
 
 namespace MansionEscape
 {

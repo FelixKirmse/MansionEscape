@@ -1,5 +1,5 @@
 #pragma once
-#include "Model/IModel.h"
+#include "Model/BaseModel.h"
 #include "Model/PlayerData.h"
 
 namespace MansionEscape
@@ -12,20 +12,16 @@ namespace MansionEscape
   \brief IModel implementation that saves data in XML-Format
   \class XMLModel Model/XMLModel.h
 */
-class XMLModel : public IModel
+class XMLModel : public BaseModel
 {
 public:
   XMLModel();
 
   void Save();
   void Load();
-  void Delete();
-
-  PlayerData& GetPlayerData();
+  void Delete(); 
 
 private:
-  PlayerData _playerData;
-
   static std::string const XMLDir;
   static std::string const XMLFile;
 };

@@ -6,6 +6,17 @@
 #include "GameOptions.h"
 #include <boost/filesystem.hpp>
 
+#include <qt4/Qt/qlibraryinfo.h>
+#include <iostream>
+int main(int argc, char** argv)
+{
+  using namespace std;
+
+  cout << QLibraryInfo::location(QLibraryInfo::PluginsPath).toStdString() << endl;
+  return 0;
+}
+
+/*
 int main(int argc, char** argv)
 {
   using namespace std;
