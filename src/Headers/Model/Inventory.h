@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+// Iterator Design Pattern
+
 namespace MansionEscape
 {
 class Item;
@@ -12,6 +14,14 @@ class Inventory
 {
 public:
   typedef std::vector<std::string> ItemVec;
+  typedef ItemVec::iterator Iterator;
+  typedef ItemVec::const_iterator ConstIterator;
+
+  Iterator begin();
+  ConstIterator begin() const;
+
+  Iterator end();
+  ConstIterator end() const;
 
   ItemVec const& GetItems() const;
   ItemVec& GetItems();

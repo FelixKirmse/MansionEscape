@@ -17,7 +17,7 @@ void save(Archive& ar, MansionEscape::Inventory const& inventory, const unsigned
   size_t size = items.size();
   ar & make_nvp("size", size);
 
-  for(auto const& item : inventory.GetItems())
+  for(auto const& item : inventory)
   {
     ar & make_nvp("item", item);
   }

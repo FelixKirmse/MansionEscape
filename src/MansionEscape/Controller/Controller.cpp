@@ -92,7 +92,7 @@ Controller::ActionVec Controller::GetContextActions() const
 Controller::ItemVec Controller::GetInventoryItems() const
 {
   ItemVec items;
-  for(auto const& label : _playerData.GetInventory().GetItems())
+  for(auto const& label : _playerData.GetInventory())
   {
     items.push_back(&_model->GetItem(label));
   }
