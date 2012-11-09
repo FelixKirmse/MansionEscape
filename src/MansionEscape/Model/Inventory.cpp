@@ -22,7 +22,7 @@ void Inventory::AddItem(std::string const& label)
 
 void Inventory::RemoveItem(std::string const& label)
 {
-  ItemVec::iterator pos(0);
+  Iterator pos(0);
   for(;pos != _items.end(); ++pos)
     if(*pos == label)
       break;
@@ -35,5 +35,27 @@ void Inventory::SetProgress(Progress* progress)
 {
   _progress = progress;
 }
+
+Inventory::Iterator Inventory::begin()
+{
+  return _items.begin();
+}
+
+Inventory::ConstIterator Inventory::begin() const
+{
+  return _items.begin();
+}
+
+Inventory::Iterator Inventory::end()
+{
+  return _items.end();
+}
+
+Inventory::ConstIterator Inventory::end() const
+{
+  return _items.end();
+}
+
+
 
 }

@@ -39,7 +39,7 @@ void DBModel::Save()
 
   query << "INSERT INTO " << InventoryTable << endl;
   query << "SELECT 'DUMMYITEM' AS label" << endl;
-  for(auto const& item : playerData.GetInventory().GetItems())
+  for(auto const& item : playerData.GetInventory())
     query << "UNION SELECT '" << item << "'" << endl;
 
   query << ";";

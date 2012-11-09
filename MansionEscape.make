@@ -66,20 +66,20 @@ endif
 OBJECTS := \
 	$(OBJDIR)/Launcher.o \
 	$(OBJDIR)/main.o \
-	$(OBJDIR)/DBModel.o \
-	$(OBJDIR)/Inventory.o \
+	$(OBJDIR)/Controller.o \
+	$(OBJDIR)/XMLModel.o \
+	$(OBJDIR)/Item.o \
 	$(OBJDIR)/PlayerData.o \
 	$(OBJDIR)/RoomView.o \
-	$(OBJDIR)/ItemInfo.o \
-	$(OBJDIR)/Item.o \
-	$(OBJDIR)/ContextAction.o \
-	$(OBJDIR)/XMLModel.o \
-	$(OBJDIR)/Progress.o \
-	$(OBJDIR)/BaseModel.o \
 	$(OBJDIR)/AssetHolder.o \
-	$(OBJDIR)/Controller.o \
-	$(OBJDIR)/GUI.o \
+	$(OBJDIR)/ContextAction.o \
+	$(OBJDIR)/DBModel.o \
+	$(OBJDIR)/Inventory.o \
+	$(OBJDIR)/ItemInfo.o \
+	$(OBJDIR)/BaseModel.o \
+	$(OBJDIR)/Progress.o \
 	$(OBJDIR)/moc_GUI.o \
+	$(OBJDIR)/GUI.o \
 	$(OBJDIR)/TUI.o \
 
 RESOURCES := \
@@ -147,10 +147,13 @@ $(OBJDIR)/Launcher.o: src/MansionEscape/Launcher.cpp
 $(OBJDIR)/main.o: src/MansionEscape/main.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/DBModel.o: src/MansionEscape/Model/DBModel.cpp
+$(OBJDIR)/Controller.o: src/MansionEscape/Controller/Controller.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/Inventory.o: src/MansionEscape/Model/Inventory.cpp
+$(OBJDIR)/XMLModel.o: src/MansionEscape/Model/XMLModel.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/Item.o: src/MansionEscape/Model/Item.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/PlayerData.o: src/MansionEscape/Model/PlayerData.cpp
@@ -159,34 +162,31 @@ $(OBJDIR)/PlayerData.o: src/MansionEscape/Model/PlayerData.cpp
 $(OBJDIR)/RoomView.o: src/MansionEscape/Model/RoomView.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/ItemInfo.o: src/MansionEscape/Model/ItemInfo.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/Item.o: src/MansionEscape/Model/Item.cpp
+$(OBJDIR)/AssetHolder.o: src/MansionEscape/Model/AssetHolder.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/ContextAction.o: src/MansionEscape/Model/ContextAction.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/XMLModel.o: src/MansionEscape/Model/XMLModel.cpp
+$(OBJDIR)/DBModel.o: src/MansionEscape/Model/DBModel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/Progress.o: src/MansionEscape/Model/Progress.cpp
+$(OBJDIR)/Inventory.o: src/MansionEscape/Model/Inventory.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/ItemInfo.o: src/MansionEscape/Model/ItemInfo.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/BaseModel.o: src/MansionEscape/Model/BaseModel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/AssetHolder.o: src/MansionEscape/Model/AssetHolder.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/Controller.o: src/MansionEscape/Controller/Controller.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/GUI.o: src/MansionEscape/View/GUI.cpp
+$(OBJDIR)/Progress.o: src/MansionEscape/Model/Progress.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/moc_GUI.o: src/MansionEscape/View/moc_GUI.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/GUI.o: src/MansionEscape/View/GUI.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/TUI.o: src/MansionEscape/View/TUI.cpp
