@@ -12,6 +12,11 @@ namespace MansionEscape
 DBModel::DBModel()
   : BaseModel(), _database(0)
 {
+  using namespace boost::filesystem;
+  path dbDir(DBDir);
+  if(!exists(dbDir))
+    create_directory(dbDir);
+
   sqlite3_open(DBFile.c_str(), &_database);
 
   Query(InventoryCreateQuery);
