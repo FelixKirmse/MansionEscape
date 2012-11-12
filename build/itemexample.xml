@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="9">
+<item class_id="0" tracking_level="0" version="0">
+	<_itemInfo class_id="1" tracking_level="0" version="0">
+		<_name>Hier kommt der Name hin!</_name>
+		<_commentString>Hier kommt der Comment hin!</_commentString>
+	</_itemInfo>
+</item>
+</boost_serialization>
+

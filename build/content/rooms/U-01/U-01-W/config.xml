@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="9">
+<room class_id="0" tracking_level="0" version="0">
+	<_roomLabel>U-01</_roomLabel>
+	<_roomDescription>Hier kommt die Raumbeschreibung rein</_roomDescription>
+	<_label>U-01-W</_label>
+	<_description>Beschreibung der Raumperspektive.
+Hier ist ein Zeilenumbruch.</_description>
+	<_inspectionString>Inspektionsstring des Raumes</_inspectionString>
+	<_nextRoom>Label des nächsten Raumes</_nextRoom>
+	<_failReaction>Dieser String wird angezeigt, wenn man nicht nach weiter gehen kann.</_failReaction>
+	<_requiredFlagsForNextRoom class_id="1" tracking_level="0" version="0">
+		<count>2</count>
+		<item_version>0</item_version>
+		<item>NEXTROOMFLAG1</item>
+		<item>NEXTROOMFLAG2</item>
+	</_requiredFlagsForNextRoom>
+	<_contextActions class_id="2" tracking_level="0" version="0">
+		<count>2</count>
+		<item_version>0</item_version>
+		<item class_id="3" tracking_level="0" version="0">
+			<_label>ContextAction-Label - Volle ContextAction</_label>
+			<_reaction>Hier kommt die Reaktion rein.</_reaction>
+			<_forbiddenFlags>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>FORBIDDENFLAG1</item>
+				<item>FORBIDDENFLAG2</item>
+				<item>FORBIDDENFLAG3</item>
+			</_forbiddenFlags>
+			<_requiresFlags>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>REQUIRESFLAG1</item>
+				<item>REQUIRESFLAG2</item>
+				<item>REQUIRESFLAG3</item>
+			</_requiresFlags>
+			<_grantsFlags>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>GRANTFLAG1</item>
+				<item>GRANTFLAG2</item>
+				<item>GRANTFLAG3</item>
+			</_grantsFlags>
+			<_removesFlags>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>REMOVEFLAG1</item>
+				<item>REMOVEFLAG2</item>
+				<item>REMOVEFLAG3</item>
+			</_removesFlags>
+			<_removesItems>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>REMOVEITEM1</item>
+				<item>REMOVEITEM2</item>
+				<item>REMOVEITEM3</item>
+			</_removesItems>
+			<_grantsItems>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>GRANTITEM1</item>
+				<item>GRANTITEM2</item>
+				<item>GRANTITEM3</item>
+			</_grantsItems>
+		</item>
+		<item>
+			<_label>Beispiel für Leere KontextAction</_label>
+			<_reaction>Geht immer und nix passiert</_reaction>
+			<_forbiddenFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_forbiddenFlags>
+			<_requiresFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_requiresFlags>
+			<_grantsFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_grantsFlags>
+			<_removesFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_removesFlags>
+			<_removesItems>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_removesItems>
+			<_grantsItems>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_grantsItems>
+		</item>
+	</_contextActions>
+	<_pictureConditions class_id="4" tracking_level="0" version="0">
+		<count>2</count>
+		<item_version>0</item_version>
+		<item>
+			<count>2</count>
+			<item_version>0</item_version>
+			<item>PICFLAGCONDITION1_1</item>
+			<item>PICFLAGCONDITION1_2</item>
+		</item>
+		<item>
+			<count>2</count>
+			<item_version>0</item_version>
+			<item>PICFLAGCONDITION2_1</item>
+			<item>PICFLAGCONDITION3_2</item>
+		</item>
+	</_pictureConditions>
+</room>
+</boost_serialization>
+
