@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUI.ui'
 **
-** Created: Mon Nov 12 14:54:57 2012
+** Created: Mon Nov 12 16:08:29 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -31,21 +31,21 @@ class Ui_GUI
 {
 public:
     QWidget *centralWidget;
-    QPushButton *_forward;
-    QPushButton *_turnLeft;
-    QPushButton *_turnRight;
-    QListView *_inventarBar;
-    QTextBrowser *_textOutput;
-    QPushButton *_action2;
-    QPushButton *_action1;
-    QPushButton *_action3;
-    QPushButton *_action4;
-    QPushButton *_action3_2;
-    QPushButton *_action3_4;
-    QLabel *_imageFrame;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    QStatusBar *statusBar;
+    QPushButton *ForwardButton;
+    QPushButton *TurnLeftButton;
+    QPushButton *TurnRightButton;
+    QListView *InventoryView;
+    QTextBrowser *FeedbackArea;
+    QPushButton *InspectButton;
+    QPushButton *UseButton;
+    QPushButton *Context3Button;
+    QPushButton *CommentItemButton;
+    QPushButton *Context2Button;
+    QPushButton *Context1Button;
+    QLabel *ImageFrame;
+    QMenuBar *MenuBar;
+    QToolBar *MainToolBar;
+    QStatusBar *StatusBar;
 
     void setupUi(QMainWindow *GUI)
     {
@@ -54,53 +54,53 @@ public:
         GUI->resize(640, 480);
         centralWidget = new QWidget(GUI);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        _forward = new QPushButton(centralWidget);
-        _forward->setObjectName(QString::fromUtf8("_forward"));
-        _forward->setGeometry(QRect(130, 100, 51, 51));
-        _turnLeft = new QPushButton(centralWidget);
-        _turnLeft->setObjectName(QString::fromUtf8("_turnLeft"));
-        _turnLeft->setGeometry(QRect(70, 150, 51, 51));
-        _turnRight = new QPushButton(centralWidget);
-        _turnRight->setObjectName(QString::fromUtf8("_turnRight"));
-        _turnRight->setGeometry(QRect(190, 150, 51, 51));
-        _inventarBar = new QListView(centralWidget);
-        _inventarBar->setObjectName(QString::fromUtf8("_inventarBar"));
-        _inventarBar->setGeometry(QRect(10, 330, 621, 81));
-        _textOutput = new QTextBrowser(centralWidget);
-        _textOutput->setObjectName(QString::fromUtf8("_textOutput"));
-        _textOutput->setGeometry(QRect(10, 250, 621, 71));
-        _action2 = new QPushButton(centralWidget);
-        _action2->setObjectName(QString::fromUtf8("_action2"));
-        _action2->setGeometry(QRect(20, 110, 98, 27));
-        _action1 = new QPushButton(centralWidget);
-        _action1->setObjectName(QString::fromUtf8("_action1"));
-        _action1->setGeometry(QRect(110, 210, 98, 27));
-        _action3 = new QPushButton(centralWidget);
-        _action3->setObjectName(QString::fromUtf8("_action3"));
-        _action3->setGeometry(QRect(20, 60, 271, 27));
-        _action4 = new QPushButton(centralWidget);
-        _action4->setObjectName(QString::fromUtf8("_action4"));
-        _action4->setGeometry(QRect(190, 110, 98, 27));
-        _action3_2 = new QPushButton(centralWidget);
-        _action3_2->setObjectName(QString::fromUtf8("_action3_2"));
-        _action3_2->setGeometry(QRect(20, 30, 271, 27));
-        _action3_4 = new QPushButton(centralWidget);
-        _action3_4->setObjectName(QString::fromUtf8("_action3_4"));
-        _action3_4->setGeometry(QRect(20, 0, 271, 27));
-        _imageFrame = new QLabel(centralWidget);
-        _imageFrame->setObjectName(QString::fromUtf8("_imageFrame"));
-        _imageFrame->setGeometry(QRect(310, 0, 320, 240));
+        ForwardButton = new QPushButton(centralWidget);
+        ForwardButton->setObjectName(QString::fromUtf8("ForwardButton"));
+        ForwardButton->setGeometry(QRect(130, 100, 51, 51));
+        TurnLeftButton = new QPushButton(centralWidget);
+        TurnLeftButton->setObjectName(QString::fromUtf8("TurnLeftButton"));
+        TurnLeftButton->setGeometry(QRect(70, 150, 51, 51));
+        TurnRightButton = new QPushButton(centralWidget);
+        TurnRightButton->setObjectName(QString::fromUtf8("TurnRightButton"));
+        TurnRightButton->setGeometry(QRect(190, 150, 51, 51));
+        InventoryView = new QListView(centralWidget);
+        InventoryView->setObjectName(QString::fromUtf8("InventoryView"));
+        InventoryView->setGeometry(QRect(10, 330, 621, 81));
+        FeedbackArea = new QTextBrowser(centralWidget);
+        FeedbackArea->setObjectName(QString::fromUtf8("FeedbackArea"));
+        FeedbackArea->setGeometry(QRect(10, 250, 621, 71));
+        InspectButton = new QPushButton(centralWidget);
+        InspectButton->setObjectName(QString::fromUtf8("InspectButton"));
+        InspectButton->setGeometry(QRect(20, 110, 98, 27));
+        UseButton = new QPushButton(centralWidget);
+        UseButton->setObjectName(QString::fromUtf8("UseButton"));
+        UseButton->setGeometry(QRect(110, 210, 98, 27));
+        Context3Button = new QPushButton(centralWidget);
+        Context3Button->setObjectName(QString::fromUtf8("Context3Button"));
+        Context3Button->setGeometry(QRect(20, 60, 271, 27));
+        CommentItemButton = new QPushButton(centralWidget);
+        CommentItemButton->setObjectName(QString::fromUtf8("CommentItemButton"));
+        CommentItemButton->setGeometry(QRect(190, 110, 98, 27));
+        Context2Button = new QPushButton(centralWidget);
+        Context2Button->setObjectName(QString::fromUtf8("Context2Button"));
+        Context2Button->setGeometry(QRect(20, 30, 271, 27));
+        Context1Button = new QPushButton(centralWidget);
+        Context1Button->setObjectName(QString::fromUtf8("Context1Button"));
+        Context1Button->setGeometry(QRect(20, 0, 271, 27));
+        ImageFrame = new QLabel(centralWidget);
+        ImageFrame->setObjectName(QString::fromUtf8("ImageFrame"));
+        ImageFrame->setGeometry(QRect(310, 0, 320, 240));
         GUI->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(GUI);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 640, 25));
-        GUI->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(GUI);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        GUI->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(GUI);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        GUI->setStatusBar(statusBar);
+        MenuBar = new QMenuBar(GUI);
+        MenuBar->setObjectName(QString::fromUtf8("MenuBar"));
+        MenuBar->setGeometry(QRect(0, 0, 640, 23));
+        GUI->setMenuBar(MenuBar);
+        MainToolBar = new QToolBar(GUI);
+        MainToolBar->setObjectName(QString::fromUtf8("MainToolBar"));
+        GUI->addToolBar(Qt::TopToolBarArea, MainToolBar);
+        StatusBar = new QStatusBar(GUI);
+        StatusBar->setObjectName(QString::fromUtf8("StatusBar"));
+        GUI->setStatusBar(StatusBar);
 
         retranslateUi(GUI);
 
@@ -110,16 +110,16 @@ public:
     void retranslateUi(QMainWindow *GUI)
     {
         GUI->setWindowTitle(QApplication::translate("GUI", "Mansion Escape", 0, QApplication::UnicodeUTF8));
-        _forward->setText(QApplication::translate("GUI", "\303\216", 0, QApplication::UnicodeUTF8));
-        _turnLeft->setText(QApplication::translate("GUI", "<-", 0, QApplication::UnicodeUTF8));
-        _turnRight->setText(QApplication::translate("GUI", "->", 0, QApplication::UnicodeUTF8));
-        _action2->setText(QApplication::translate("GUI", "Untersuche", 0, QApplication::UnicodeUTF8));
-        _action1->setText(QApplication::translate("GUI", "Benutze", 0, QApplication::UnicodeUTF8));
-        _action3->setText(QApplication::translate("GUI", "Nehme Kondom", 0, QApplication::UnicodeUTF8));
-        _action4->setText(QApplication::translate("GUI", "Kommentiere", 0, QApplication::UnicodeUTF8));
-        _action3_2->setText(QApplication::translate("GUI", "Nehme Staubsaugerschl\303\274ssel", 0, QApplication::UnicodeUTF8));
-        _action3_4->setText(QApplication::translate("GUI", "Nehme Vase", 0, QApplication::UnicodeUTF8));
-        _imageFrame->setText(QString());
+        ForwardButton->setText(QApplication::translate("GUI", "\303\216", 0, QApplication::UnicodeUTF8));
+        TurnLeftButton->setText(QApplication::translate("GUI", "<-", 0, QApplication::UnicodeUTF8));
+        TurnRightButton->setText(QApplication::translate("GUI", "->", 0, QApplication::UnicodeUTF8));
+        InspectButton->setText(QApplication::translate("GUI", "Untersuche", 0, QApplication::UnicodeUTF8));
+        UseButton->setText(QApplication::translate("GUI", "Benutze", 0, QApplication::UnicodeUTF8));
+        Context3Button->setText(QApplication::translate("GUI", "ContextAction3", 0, QApplication::UnicodeUTF8));
+        CommentItemButton->setText(QApplication::translate("GUI", "Kommentiere", 0, QApplication::UnicodeUTF8));
+        Context2Button->setText(QApplication::translate("GUI", "ContextAction2", 0, QApplication::UnicodeUTF8));
+        Context1Button->setText(QApplication::translate("GUI", "ContextAction1", 0, QApplication::UnicodeUTF8));
+        ImageFrame->setText(QString());
     } // retranslateUi
 
 };

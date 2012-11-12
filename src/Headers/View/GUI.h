@@ -4,6 +4,8 @@
 #include <memory>
 #include "View/ui_GUI.h"
 #include "Controller/IController.h"
+#include "Model/ContextAction.h"
+#include <vector>
 
 /*!\cond*/
 namespace Ui {class GUI;}
@@ -25,16 +27,31 @@ class GUI : public QMainWindow
 
 public:
   typedef std::unique_ptr<Ui::GUI> UiPtr;
-  typedef std::unique_ptr<IController> ControllerPtr;
+  typedef std::unique_ptr<IController> ControllerPtr;  
+
 
   explicit GUI(IController* controller);
 
 
 private slots:
+  void on_Context1Button_pressed();
+  void on_Context2Button_pressed();
+  void on_Context3Button_pressed();
+  void on_CommentItemButton_pressed();
+  void on_InspectButton_pressed();
+  void on_ForwardButton_pressed();
+  void on_TurnLeftButton_pressed();
+  void on_TurnRightButton_pressed();
 
 private:
+  void UpdateRoomData();
+  void UpdateFeedback();
+
   UiPtr _ui;
   ControllerPtr _controller;
+
+  IController::ActionVec _contextActions;
+  IController::ItemVec _inventory;
 };
 /*!\}*/
 }
