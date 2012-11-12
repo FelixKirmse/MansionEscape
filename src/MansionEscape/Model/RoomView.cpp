@@ -13,9 +13,9 @@ RoomView::RoomView()
   : _contextActions(), _description("Invalid Room"), _nextRoom(""),
     _inspectionString("Invalid Room"),
     _failReaction("Ich kann nicht durch Wände gehen..."),
-    _requiredFlagsForNextRoom(), _label("Invalid Room"),
-    _roomLabel("Invalid Room"),
     _roomDescription("Invalid Room"),
+    _requiredFlagsForNextRoom(), _label("Invalid Room"),
+    _roomLabel("Invalid Room"),    
     _pictureConditions(), _pictures()
 {
 }
