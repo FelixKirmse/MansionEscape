@@ -25,6 +25,7 @@ public:
   template<class Archive>
   void serialize(Archive& ar, unsigned int const version);
 
+  StringVec _forbiddenFlags;
   StringVec _requiresFlags;
   StringVec _grantsFlags;
   StringVec _removesFlags;

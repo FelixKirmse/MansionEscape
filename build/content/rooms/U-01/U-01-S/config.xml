@@ -3,7 +3,7 @@
 <boost_serialization signature="serialization::archive" version="9">
 <room class_id="0" tracking_level="0" version="0">
 	<_roomLabel>U-01</_roomLabel>
-	<_roomDescription>U-01-S</_roomDescription>
+	<_roomDescription>Hier kommt die Raumbeschreibung rein</_roomDescription>
 	<_label>U-01-S</_label>
 	<_description>Beschreibung der Raumperspektive.
 Hier ist ein Zeilenumbruch.</_description>
@@ -22,6 +22,13 @@ Hier ist ein Zeilenumbruch.</_description>
 		<item class_id="3" tracking_level="0" version="0">
 			<_label>ContextAction-Label - Volle ContextAction</_label>
 			<_reaction>Hier kommt die Reaktion rein.</_reaction>
+			<_forbiddenFlags>
+				<count>3</count>
+				<item_version>0</item_version>
+				<item>FORBIDDENFLAG1</item>
+				<item>FORBIDDENFLAG2</item>
+				<item>FORBIDDENFLAG3</item>
+			</_forbiddenFlags>
 			<_requiresFlags>
 				<count>3</count>
 				<item_version>0</item_version>
@@ -61,6 +68,10 @@ Hier ist ein Zeilenumbruch.</_description>
 		<item>
 			<_label>Beispiel für Leere KontextAction</_label>
 			<_reaction>Geht immer und nix passiert</_reaction>
+			<_forbiddenFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_forbiddenFlags>
 			<_requiresFlags>
 				<count>0</count>
 				<item_version>0</item_version>

@@ -5,13 +5,18 @@
 namespace MansionEscape
 {
 ContextAction::ContextAction()
-  : _requiresFlags(), _grantsFlags(), _removesFlags(), _removesItems(),
+  : _forbiddenFlags(), _requiresFlags(),
+    _grantsFlags(), _removesFlags(), _removesItems(),
     _grantsItems(), _reaction("Invalid Object")
 {
 }
 
 bool ContextAction::CanPerform(Progress& progress) const
 {
+  for(auto& flag : _forbiddenFlags)
+    if(progress.GetFlag(flag))
+      return false;
+
   for(auto& flag : _requiresFlags)
     if(!progress.GetFlag(flag))
       return false;
