@@ -6,17 +6,7 @@
 #include "GameOptions.h"
 #include <boost/filesystem.hpp>
 
-#include <qt4/Qt/qlibraryinfo.h>
-#include <iostream>
-int main(int argc, char** argv)
-{
-  using namespace std;
 
-  cout << QLibraryInfo::location(QLibraryInfo::PluginsPath).toStdString() << endl;
-  return 0;
-}
-
-/*
 int main(int argc, char** argv)
 {
   using namespace std;
@@ -25,7 +15,9 @@ int main(int argc, char** argv)
 
   QApplication app(argc, argv);
 
-  path profileDir("~/.mansionEscape");
+  std::string home = getenv("HOME");
+
+  path profileDir(home + "/.mansionescape");
   if(!exists(profileDir))
     create_directory(profileDir);
 
@@ -51,7 +43,7 @@ int main(int argc, char** argv)
 #include <boost/archive/xml_iarchive.hpp>
 #include <fstream>
 #include <Model/Item.h>
-#include <Controller/RoomView.h>
+#include <Model/RoomView.h>
 #include <iostream>
 
 int main(int argc, char** argv)
@@ -86,12 +78,13 @@ int main(int argc, char** argv)
   room._contextActions = contextActions;
   room._requiredFlagsForNextRoom = {"NEXTROOMFLAG1", "NEXTROOMFLAG2"};
   room._pictureConditions = {{"PICFLAGCONDITION1_1", "PICFLAGCONDITION1_2"},{"PICFLAGCONDITION2_1", "PICFLAGCONDITION3_2"}};
-  room._description = "Beschreibung des Raumes.\nHier ist ein Zeilenumbruch.";
+  room._description = "Beschreibung der Raumperspektive.\nHier ist ein Zeilenumbruch.";
   room._label = "Vollständiges Label des Raumes, z.B. U-01-W";
   room._roomLabel = "Label des Raumes, z.B. U-01";
   room._nextRoom = "Label des nächsten Raumes";
   room._inspectionString = "Inspektionsstring des Raumes";
   room._failReaction = "Dieser String wird angezeigt, wenn man nicht nach weiter gehen kann.";
+  room._roomDescription = "Hier kommt die Raumbeschreibung rein";
 
   ofstream ofs("roomexample.xml");
   xml_oarchive oa(ofs);
@@ -131,4 +124,5 @@ int main(int argc, char** argv)
 /*
   return 0;
 }
+
 */

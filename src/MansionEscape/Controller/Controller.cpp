@@ -8,7 +8,8 @@ namespace MansionEscape
 {
 
 Controller::Controller(IModel* model)
-  : _model(model), _playerData(model->GetPlayerData())
+  : _model(model), _playerData(model->GetPlayerData()), _feedBack(0),
+    _currentRoom(0), _changedRoom(true)
 {  
   _currentRoom = &_model->GetRoom(_playerData.GetRoomLabel());
   _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
@@ -16,7 +17,9 @@ Controller::Controller(IModel* model)
 
 void Controller::ChangeRoom(std::string const& newRoom)
 {
-  _currentRoom = &_model->GetRoom(newRoom);
+  RoomView const& newRoomObj = _model->GetRoom(newRoom);
+  _changedRoom = newRoomObj.GetRoomLabel() == _currentRoom->GetRoomLabel();
+  _currentRoom = &newRoomObj;
   _playerData.SetRoomLabel(newRoom);
 }
 
@@ -63,9 +66,19 @@ std::string const& Controller::GetRoomLabel() const
   return _playerData.GetRoomLabel();
 }
 
-std::string const& Controller::GetRoomDescription() const
+std::string const& Controller::GetRoomViewDescription() const
 {
   return _currentRoom->GetDescription();
+}
+
+bool Controller::RoomChanged() const
+{
+  return _changedRoom;
+}
+
+std::string const& Controller::GetRoomDescription() const
+{
+  return _currentRoom->GetRoomDescription();
 }
 
 std::string const& Controller::GetRoomInspectString() const

@@ -7,14 +7,14 @@
 
 namespace MansionEscape
 {
-std::string const XMLModel::XMLDir("~/.mansionescape/xml");
-std::string const XMLModel::XMLFile("~/.mansionescape/xml/savedata.sav");
+std::string const XMLModel::XMLDir("/.mansionescape/xml");
+std::string const XMLModel::XMLFile("/.mansionescape/xml/savedata.sav");
 
 XMLModel::XMLModel()
   : BaseModel()
 {
   using namespace boost::filesystem;
-  path xmlDir(XMLDir);
+  path xmlDir(getenv("HOME") + XMLDir);
   if(!exists(xmlDir))
     create_directory(xmlDir);
   std::fstream(XMLFile);

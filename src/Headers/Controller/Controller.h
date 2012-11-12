@@ -31,6 +31,8 @@ public:
 
 
   std::string const& GetRoomLabel() const;
+  std::string const& GetRoomViewDescription() const;
+  bool RoomChanged() const;
   std::string const& GetRoomDescription() const;
   std::string const& GetRoomInspectString() const;
   QPixmap const& GetRoomPicture() const;
@@ -50,6 +52,7 @@ private:
   PlayerData& _playerData;
   std::string const* _feedBack;
   RoomView const* _currentRoom;
+  bool _changedRoom;
 };
 /*!\}*/
 }

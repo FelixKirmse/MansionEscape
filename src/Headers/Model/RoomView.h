@@ -30,6 +30,7 @@ public:
   std::string const& GetRoomLabel() const;
   std::string const& GetFailReaction() const;
   std::string const& GetInspectionString() const;
+  std::string const& GetRoomDescription() const;
   ActionVec const& GetContextActions() const;
 
 //private:
@@ -49,6 +50,7 @@ public:
   std::string _nextRoom;
   std::string _inspectionString;
   std::string _failReaction;
+  std::string _roomDescription;
   FlagVec _requiredFlagsForNextRoom;
 
   std::string _label;
