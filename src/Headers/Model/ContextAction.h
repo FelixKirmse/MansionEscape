@@ -19,6 +19,7 @@ public:
   bool CanPerform(Progress& progress) const;
   void Perform(Progress& progress, Inventory& inventory) const;
   std::string const& GetReaction() const;
+  std::string const& GetLabel() const;
 
 //private:
   friend class boost::serialization::access;

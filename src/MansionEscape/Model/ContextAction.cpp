@@ -40,6 +40,11 @@ void ContextAction::Perform(Progress& progress, Inventory& inventory) const
 
 std::string const& ContextAction::GetReaction() const
 {
+  return _reaction;
+}
+
+std::string const& ContextAction::GetLabel() const
+{
   return _label;
 }
 
