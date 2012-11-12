@@ -33,6 +33,8 @@ public:
 
 
   virtual std::string const& GetRoomLabel() const = 0;
+  virtual std::string const& GetRoomViewDescription() const = 0;
+  virtual bool RoomChanged() const = 0;
   virtual std::string const& GetRoomDescription() const = 0;
   virtual std::string const& GetRoomInspectString() const = 0;
   virtual QPixmap const& GetRoomPicture() const = 0;

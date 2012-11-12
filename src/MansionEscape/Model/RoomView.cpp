@@ -15,6 +15,7 @@ RoomView::RoomView()
     _failReaction("Ich kann nicht durch Wände gehen..."),
     _requiredFlagsForNextRoom(), _label("Invalid Room"),
     _roomLabel("Invalid Room"),
+    _roomDescription("Invalid Room"),
     _pictureConditions(), _pictures()
 {
 }
@@ -97,6 +98,11 @@ std::string const& RoomView::GetRoomLabel() const
 std::string const& RoomView::GetFailReaction() const
 {
   return _failReaction;
+}
+
+std::string const& RoomView::GetRoomDescription() const
+{
+  return _roomDescription;
 }
 }
 
