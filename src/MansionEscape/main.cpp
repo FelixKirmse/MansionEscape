@@ -38,6 +38,7 @@ int main(int argc, char** argv)
   return tui.Execute();
 }
 
+
 /* Main zum testen von Item & Raumarchiven!
 #include <boost/archive/xml_oarchive.hpp>
 #include <boost/archive/xml_iarchive.hpp>
@@ -67,6 +68,7 @@ int main(int argc, char** argv)
   action1._removesFlags = {"REMOVEFLAG1", "REMOVEFLAG2", "REMOVEFLAG3"};
   action1._removesItems = {"REMOVEITEM1", "REMOVEITEM2", "REMOVEITEM3"};
   action1._requiresFlags = {"REQUIRESFLAG1", "REQUIRESFLAG2", "REQUIRESFLAG3"};
+  action1._forbiddenFlags = {"FORBIDDENFLAG1", "FORBIDDENFLAG2", "FORBIDDENFLAG3"};
 
   ContextAction action2;
   action2._label = "Beispiel für Leere KontextAction";
@@ -124,5 +126,5 @@ int main(int argc, char** argv)
 /*
   return 0;
 }
-
 */
+
