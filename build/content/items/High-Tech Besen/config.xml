@@ -3,8 +3,8 @@
 <boost_serialization signature="serialization::archive" version="9">
 <item class_id="0" tracking_level="0" version="0">
 	<_itemInfo class_id="1" tracking_level="0" version="0">
-		<_name>Besen</_name>
-		<_commentString>Ein gewöhnlicher Besen.</_commentString>
+		<_name>High-Tech Besen</_name>
+		<_commentString>Er scheint nicht gerade zum saubermachen geeignet zu sein...</_commentString>
 	</_itemInfo>
 </item>
 </boost_serialization>
