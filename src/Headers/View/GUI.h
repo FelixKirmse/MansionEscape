@@ -4,7 +4,6 @@
 #include <memory>
 #include "View/ui_GUI.h"
 #include "Controller/IController.h"
-#include "Model/ContextAction.h"
 #include <vector>
 
 /*!\cond*/
@@ -46,6 +45,7 @@ private slots:
 private:
   void UpdateRoomData();
   void UpdateFeedback();
+  void UpdateItems();
 
   UiPtr _ui;
   ControllerPtr _controller;
