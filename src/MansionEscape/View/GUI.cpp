@@ -1,4 +1,7 @@
 #include "View/GUI.h"
+#include "Model/ContextAction.h"
+#include "Model/Item.h"
+#include <qt4/QtGui/QIcon>
 
 namespace MansionEscape
 {
@@ -17,23 +20,30 @@ void GUI::on_Context1Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[0]);
   UpdateFeedback();
+  UpdateItems();
 }
 
 void GUI::on_Context2Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[1]);
   UpdateFeedback();
+  UpdateItems();
 }
 
 void GUI::on_Context3Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[2]);
   UpdateFeedback();
+  UpdateItems();
 }
 
 void GUI::on_CommentItemButton_pressed()
 {
-  // TODO
+  if(_ui->InventoryView->currentItem() == 0)
+    _ui->FeedbackArea->setText("Es muss ein Item ausgewählt sein, um es zu kommentieren.");
+  QString const& itemName = _ui->InventoryView->currentItem()->text();
+  Item const& item = _controller->GetItemByName(itemName.toStdString());
+  _ui->FeedbackArea->setText(item.GetCommentString().c_str());
 }
 
 void GUI::on_InspectButton_pressed()
@@ -96,6 +106,18 @@ void GUI::UpdateRoomData()
 void GUI::UpdateFeedback()
 {
   _ui->FeedbackArea->setText(_controller->GetFeedback().c_str());
+}
+
+void GUI::UpdateItems()
+{
+  _inventory = _controller->GetInventoryItems();
+  _ui->InventoryView->clear();
+  for(Item const* item : _inventory)
+  {
+    new QListWidgetItem(QIcon(item->GetPixMap()),
+                        item->GetName().c_str(),
+                        _ui->InventoryView);
+  }
 }
 
 }

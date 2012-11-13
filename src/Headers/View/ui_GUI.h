@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUI.ui'
 **
-** Created: Mon Nov 12 16:08:29 2012
+** Created: Tue Nov 13 13:39:16 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,7 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
-#include <QtGui/QListView>
+#include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
@@ -34,7 +34,7 @@ public:
     QPushButton *ForwardButton;
     QPushButton *TurnLeftButton;
     QPushButton *TurnRightButton;
-    QListView *InventoryView;
+    QListWidget *InventoryView;
     QTextBrowser *FeedbackArea;
     QPushButton *InspectButton;
     QPushButton *UseButton;
@@ -63,9 +63,12 @@ public:
         TurnRightButton = new QPushButton(centralWidget);
         TurnRightButton->setObjectName(QString::fromUtf8("TurnRightButton"));
         TurnRightButton->setGeometry(QRect(190, 150, 51, 51));
-        InventoryView = new QListView(centralWidget);
+        InventoryView = new QListWidget(centralWidget);
         InventoryView->setObjectName(QString::fromUtf8("InventoryView"));
         InventoryView->setGeometry(QRect(10, 330, 621, 81));
+        InventoryView->setIconSize(QSize(100, 100));
+        InventoryView->setViewMode(QListView::IconMode);
+        InventoryView->setUniformItemSizes(true);
         FeedbackArea = new QTextBrowser(centralWidget);
         FeedbackArea->setObjectName(QString::fromUtf8("FeedbackArea"));
         FeedbackArea->setGeometry(QRect(10, 250, 621, 71));
