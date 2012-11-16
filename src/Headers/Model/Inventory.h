@@ -3,17 +3,18 @@
 #include <vector>
 #include <string>
 
-// Iterator Design Pattern
+// Iterator Design Pattern...nicht wirklich
 
 namespace MansionEscape
 {
 class Item;
 class Progress;
+class IModel;
 
 class Inventory
 {
 public:
-  typedef std::vector<std::string> ItemVec;
+  typedef std::vector<Item const*> ItemVec;
   typedef ItemVec::iterator Iterator;
   typedef ItemVec::const_iterator ConstIterator;
 
@@ -30,9 +31,12 @@ public:
   void RemoveItem(std::string const& label);
 
   void SetProgress(Progress* progress);
+  void SetModel(IModel* model);
+  IModel* GetModel();
 
 private:
   ItemVec _items;
   Progress* _progress;
+  IModel* _model;
 };
 }

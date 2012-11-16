@@ -22,6 +22,7 @@ public:
   virtual void Save() = 0;
   virtual void Load() = 0;
   virtual void Delete() = 0;
+  virtual void SetsaveSlot(int saveSlot) = 0;
 
   virtual Item const& GetItem(std::string const& name) = 0;
   virtual RoomView const& GetRoom(std::string const& label) = 0;

@@ -103,13 +103,8 @@ Controller::ActionVec Controller::GetContextActions() const
 }
 
 Controller::ItemVec Controller::GetInventoryItems() const
-{
-  ItemVec items;
-  for(auto const& label : _playerData.GetInventory())
-  {
-    items.push_back(&_model->GetItem(label));
-  }
-  return items;
+{  
+  return _playerData.GetInventory().GetItems();
 }
 
 Item const& Controller::GetItemByName(std::string const& name) const

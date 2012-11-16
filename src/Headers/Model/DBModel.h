@@ -22,7 +22,7 @@ public:
 
   void Save();
   void Load();
-  void Delete();  
+  void Delete();
 
 private:
   typedef std::vector<std::vector<std::string> > QueryResult;
@@ -32,6 +32,17 @@ private:
   void RecreateTables();
   void ResetStream(std::stringstream& stream);
 
+  int GetFlagID(std::string const& flagName);
+  int GetItemID(Item const* item);
+
+  int GetID(std::string const& table, std::string const& value);
+
+  int InsertItem(Item const* item);
+  int InsertFlag(std::string const& flagName);
+  int Insert(std::string const& table, std::string const& value);
+
+  bool SaveSlotExists();
+
   sqlite3* _database;
 
   static std::string const DBDir;
@@ -40,9 +51,18 @@ private:
   static std::string const ProgressTable;
   static std::string const PlayerDataTable;
 
+  static std::string const ActivateForeignKeys;
+  static std::string const GetIDFormatQuery;
+  static std::string const InsertIntoFormatQuery;
+  static std::string const DeleteRelationsFormatQuery;
+
   static std::string const InventoryCreateQuery;
   static std::string const ProgressCreateQuery;
-  static std::string const PlayerDataCreateQuery;
+  static std::string const saveSlotCreateQuery;
+  static std::string const ItemCreateQuery;
+  static std::string const FlagCreateQuery;
+
+  static std::string const LoadFormatQuery;
 };
 /*!\}*/
 }

@@ -17,9 +17,9 @@ void save(Archive& ar, MansionEscape::Inventory const& inventory, const unsigned
   size_t size = items.size();
   ar & make_nvp("size", size);
 
-  for(auto const& item : inventory)
+  for(MansionEscape::Item const* item : inventory)
   {
-    ar & make_nvp("item", item);
+    ar & make_nvp("item", item->GetName());
   }
 }
 
@@ -32,7 +32,7 @@ void load(Archive& ar, MansionEscape::Inventory& inventory, const unsigned int v
   {
     std::string itemLabel;
     ar & make_nvp("item", itemLabel);
-    //inventory.AddItem(itemLabel);
+    inventory.AddItem(itemLabel);
   }
 }
 
@@ -61,7 +61,9 @@ void load(Archive& ar, MansionEscape::PlayerData& playerData, unsigned int const
   progress.SetFlags(flagMap);
   playerData.SetProgress(progress);
 
+  IModel* model = playerData.GetInventory().GetModel();
   Inventory inventory;
+  inventory.SetModel(model);
   ar & make_nvp("inventory", inventory);
   inventory.SetProgress(&playerData.GetProgress());
   playerData.SetInventory(inventory);
