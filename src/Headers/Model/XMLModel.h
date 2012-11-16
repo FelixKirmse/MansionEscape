@@ -22,6 +22,8 @@ public:
   void Delete(); 
 
 private:
+  std::string GetCurrentSaveFilePath();
+
   static std::string const XMLDir;
   static std::string const XMLFile;
 };

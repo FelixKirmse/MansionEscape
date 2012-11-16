@@ -14,14 +14,18 @@ public:
   virtual void Load() = 0;
   virtual void Delete() = 0;
 
+  void SetsaveSlot(int saveSlot);
   PlayerData& GetPlayerData();
   Item const& GetItem(std::string const& name);
   RoomView const& GetRoom(std::string const& label);
+  int GetSaveSlot();
+  void StartNewGame();
 
 protected:
   BaseModel();
 
 private:
+  int _saveSlot;
   PlayerData _playerData;
   AssetHolder _assetHolder;
 };

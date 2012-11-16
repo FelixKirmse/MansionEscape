@@ -3,6 +3,7 @@
 #include <boost/filesystem.hpp>
 #include "Model/Item.h"
 #include "Model/Progress.h"
+#include <boost/format.hpp>
 
 
 namespace MansionEscape
@@ -19,9 +20,11 @@ DBModel::DBModel()
 
   sqlite3_open(DBFile.c_str(), &_database);
 
+  Query(ItemCreateQuery);
+  Query(FlagCreateQuery);
+  Query(saveSlotCreateQuery);
   Query(InventoryCreateQuery);
   Query(ProgressCreateQuery);
-  Query(PlayerDataCreateQuery);
 }
 
 DBModel::~DBModel()
@@ -35,67 +38,77 @@ void DBModel::Save()
   Delete();
 
   PlayerData& playerData = GetPlayerData();
+  int saveSlot = GetSaveSlot();
 
-  stringstream query;
-  query << "INSERT INTO " << PlayerDataTable << " (currentroom) VALUES (";
-  query << "'" << playerData.GetRoomLabel() << "');";
-  Query(query.str());
-  ResetStream(query);
+  boost::format saveSlotQuery("INSERT INTO Saveslot (slot, currentroom) VALUES (%d, '%s');");
+  saveSlotQuery
+      % saveSlot
+      % playerData.GetRoomLabel();
+  Query(saveSlotQuery.str());
 
-  query << "INSERT INTO " << InventoryTable << endl;
-  query << "SELECT 'DUMMYITEM' AS label" << endl;
-  for(auto const& item : playerData.GetInventory())
-    query << "UNION SELECT '" << item << "'" << endl;
+  for(Item const* item : playerData.GetInventory())
+  {
+    boost::format inventoryQuery("INSERT INTO Inventory (saveslot, item_id) VALUES (%d, %d);");
+    inventoryQuery
+        % saveSlot
+        % InsertItem(item);
+    Query(inventoryQuery.str());
+  }
 
-  query << ";";
-  Query(query.str());
-  ResetStream(query);
-
-  query << "INSERT INTO " << ProgressTable << endl;
-  query << "SELECT 'DUMMYFLAG' AS flagname, 1 AS isset)" << endl;
-  for(auto& flag : playerData.GetProgress().GetFlags())
-    query << "UNION SELECT '" << flag.first << "', " << (flag.second ? 1 : 0) << endl;
-
-  query << ";";
-  Query(query.str());
+  for(auto const& flag : playerData.GetProgress().GetFlags())
+  {
+    boost::format progressQuery("INSERT INTO Progress (saveslot, flag_id, isset) VALUES (%d, %d, %d);");
+    progressQuery
+        % saveSlot
+        % InsertFlag(flag.first)
+        % (playerData.GetProgress().GetFlag(flag.first) ? 1 : 0);
+    Query(progressQuery.str());
+  }
 }
 
 void DBModel::Load()
 {
-  using namespace std;  
-  PlayerData& playerData = GetPlayerData();
-  stringstream query;
-  query << "SELECT currentroom FROM " << PlayerDataTable << ";";
-  QueryResult result = Query(query.str());
-  ResetStream(query);
-
-  playerData.SetRoomLabel(result[0][0]);
-
-  query << "SELECT label FROM " << InventoryTable << ";";
-  result = Query(query.str());
-  ResetStream(query);
-  Inventory& inventory = playerData.GetInventory();
-
-  for(auto& row : result)
+  using namespace std;
+  if(!SaveSlotExists())
   {
-    inventory.AddItem(row[0]);
+    StartNewGame();
+    return;
   }
 
-  query << "SELECT flagname, isset FROM " << ProgressTable << ";";
-  result = Query(query.str());
+  PlayerData& playerData = GetPlayerData();
+  Inventory& inventory = playerData.GetInventory();
   Progress& progress = playerData.GetProgress();
+  int saveSlot = GetSaveSlot();
 
-  for(auto& row : result)
+  boost::format loadQuery(LoadFormatQuery);
+  loadQuery
+      % saveSlot;
+  QueryResult result = Query(loadQuery.str());
+
+  /******************************
+   * Result-Row-Struktur:       *
+   ******************************
+   * [0] = Saveslot.currentRoom *
+   * [1] = Flag.name            *
+   * [2] = Progress.isset       *
+   * [3] = Item.name            *
+   *****************************/
+  // Wir müssen den Raum nur einmal setzen
+  playerData.SetRoomLabel(result[0][0]);
+  for(auto const& row : result)
   {
-    progress.SetFlag(row[0], row[1] == "1");
+    progress.SetFlag(row[1], row[2] == "1");
+    inventory.AddItem(row[3]);
   }
 }
 
 void DBModel::Delete()
 {
-  Query("DELETE FROM Inventory;");
-  Query("DELETE FROM Progress;");
-  Query("DELETE FROM PlayerData;");
+  boost::format query(DeleteRelationsFormatQuery);
+  query
+      % GetSaveSlot();
+  if(sqlite3_exec(_database, query.str().c_str(), 0, 0, 0) != SQLITE_OK)
+    PrintError(query.str());
 }
 
 
@@ -137,5 +150,69 @@ void DBModel::ResetStream(std::stringstream& stream)
 {
   stream.str("");
   stream.clear();
+}
+
+
+int DBModel::GetID(std::string const& table, std::string const& value)
+{
+  boost::format query(GetIDFormatQuery);
+  query
+      % table
+      % value;
+
+  sqlite3_stmt* statement;
+  if(sqlite3_prepare_v2(_database, query.str().c_str(), -1, &statement, 0) != SQLITE_OK)
+  {
+    PrintError(query.str());
+    return -2; // Interner Fehler
+  }
+
+  if(sqlite3_step(statement) == SQLITE_OK) // value nicht gefunden
+  {
+    sqlite3_finalize(statement);
+    return -1; // ID nicht gefunden
+  }
+  int id = sqlite3_column_int(statement, 0);
+  sqlite3_finalize(statement);
+  return id;
+}
+
+int DBModel::GetFlagID(std::string const& flagName)
+{
+  return GetID("Flag", flagName);
+}
+
+int DBModel::GetItemID(Item const* item)
+{
+  return GetID("Item", item->GetName());
+}
+
+int DBModel::Insert(std::string const& table, std::string const& value)
+{
+  boost::format query(InsertIntoFormatQuery);
+  query
+      % table
+      % value;
+  Query(query.str());
+  return GetID(table, value);
+}
+
+bool DBModel::SaveSlotExists()
+{
+  boost::format query("SELECT COUNT(slot) FROM Saveslot WHERE slot = %d");
+  query
+      % GetSaveSlot();
+  QueryResult result = Query(query.str());
+  return result[0][0] == "1";
+}
+
+int DBModel::InsertFlag(std::string const& flagName)
+{
+  return Insert("Flag", flagName);
+}
+
+int DBModel::InsertItem(Item const* item)
+{
+  return Insert("Item", item->GetName());
 }
 }

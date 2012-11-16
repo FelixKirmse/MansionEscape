@@ -6,34 +6,141 @@ std::string const DBModel::ProgressTable("Progress");
 std::string const DBModel::PlayerDataTable("PlayerData");
 
 
+std::string const DBModel::ActivateForeignKeys(
+R"(
+PRAGMA foreign_keys = ON;
+)");
+
+std::string const DBModel::ItemCreateQuery(
+R"(
+CREATE TABLE IF NOT EXISTS
+  Item
+  (
+    id  UNSIGNED INTEGER PRIMARY KEY ASC,
+    name VARCHAR NOT NULL
+  );
+)");
+
+
+std::string const DBModel::FlagCreateQuery(
+R"(
+CREATE TABLE IF NOT EXISTS
+  Flag
+  (
+      id UNSIGNED INTEGER PRIMARY KEY ASC,
+      name VARCHAR NOT NULL
+  );
+)");
+
+std::string const DBModel::saveSlotCreateQuery(
+R"(
+CREATE TABLE IF NOT EXISTS
+  saveslot
+  (
+    slot UNSIGNED INTEGER PRIMARY KEY ASC,
+    currentroom VARCHAR NOT NULL
+  );
+)");
+
 std::string const DBModel::InventoryCreateQuery(
 R"(
 CREATE TABLE IF NOT EXISTS
   Inventory
   (
-    id  UNSIGNED INTEGER PRIMARY KEY ASC,
-    label VARCHAR
+    saveslot UNSIGNED INTEGER NOT NULL,
+    item_id UNSIGNED INTEGER NOT NULL,
+    FOREIGN KEY(saveSlot) REFERENCES saveSlot(slot),
+    FOREIGN KEY(item_id) REFERENCES Item(id)
   );
 )");
-
 
 std::string const DBModel::ProgressCreateQuery(
 R"(
 CREATE TABLE IF NOT EXISTS
   Progress
   (
-      id UNSIGNED INTEGER PRIMARY KEY ASC,
-      flagname VARCHAR,
-      isset BOOLEAN
+    saveslot UNSIGNED INTEGER NOT NULL,
+    flag_id UNSIGNED INTEGER NOT NULL,
+    isset BOOLEAN NOT NULL,
+    FOREIGN KEY(saveSlot) REFERENCES saveSlot(slot),
+    FOREIGN KEY(flag_id) REFERENCES Flag(id)
   );
 )");
 
-std::string const DBModel::PlayerDataCreateQuery(
+std::string const DBModel::GetIDFormatQuery(
 R"(
-CREATE TABLE IF NOT EXISTS
-  Playerdata
+SELECT
+  id
+FROM
+  %s
+WHERE
+  name = '%s';
+)");
+
+
+// Source für diese Art Query: http://stackoverflow.com/a/531147/1027937
+std::string const DBModel::InsertIntoFormatQuery(
+R"(
+INSERT INTO
+  %1%
   (
-    id UNSIGNED INTEGER PRIMARY KEY ASC,
-    currentroom VARCHAR
+    name
+  )
+SELECT
+  '%2%'
+WHERE NOT EXISTS
+  (
+    SELECT
+      1
+    FROM
+      %1%
+    WHERE
+      name = '%2%'
   );
+)");
+
+
+std::string const DBModel::DeleteRelationsFormatQuery(
+R"(
+DELETE FROM
+  Inventory
+WHERE
+  saveslot = %1%;
+DELETE FROM
+  Progress
+WHERE
+  saveSlot = %1%;
+DELETE FROM
+  saveSlot
+WHERE
+  slot = %1%;
+)");
+
+std::string const DBModel::LoadFormatQuery(
+R"(
+SELECT
+  Saveslot.currentroom,
+  Flag.name,
+  Progress.isset,
+  Item.name,
+FROM
+  Saveslot
+INNER JOIN
+  Progress
+ON
+  Saveslot.slot = Progress.saveslot
+INNER JOIN
+  Flag
+ON
+  Progress.flag_id = Flag.id
+INNER JOIN
+  Inventory
+ON
+  Saveslot.slot = Inventory.saveslot
+INNER JOIN
+  Item
+ON
+  Inventory.item_id = Item.id
+WHERE
+  Saveslot.slot = %d;
 )");
