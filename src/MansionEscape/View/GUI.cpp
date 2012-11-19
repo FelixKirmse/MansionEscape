@@ -19,22 +19,19 @@ GUI::GUI(IController* controller)
 void GUI::on_Context1Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[0]);
-  UpdateFeedback();
-  UpdateItems();
+  Update();
 }
 
 void GUI::on_Context2Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[1]);
-  UpdateFeedback();
-  UpdateItems();
+  Update();
 }
 
 void GUI::on_Context3Button_pressed()
 {
   _controller->PerformContextAction(*_contextActions[2]);
-  UpdateFeedback();
-  UpdateItems();
+  Update();
 }
 
 void GUI::on_CommentItemButton_pressed()
@@ -59,18 +56,28 @@ void GUI::on_ForwardButton_pressed()
     _ui->FeedbackArea->setText(_controller->GetRoomDescription().c_str());
 
   UpdateRoomData();
+  UpdateFeedback();
 }
 
 void GUI::on_TurnLeftButton_pressed()
 {
   _controller->TurnLeft();
   UpdateRoomData();
+  UpdateFeedback();
 }
 
 void GUI::on_TurnRightButton_pressed()
 {
   _controller->TurnRight();
   UpdateRoomData();
+  UpdateFeedback();
+}
+
+void GUI::Update()
+{
+  UpdateRoomData();
+  UpdateFeedback();
+  UpdateItems();
 }
 
 void GUI::UpdateRoomData()

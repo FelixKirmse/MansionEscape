@@ -43,6 +43,8 @@ private slots:
   void on_TurnRightButton_pressed();
 
 private:
+  void Update();
+
   void UpdateRoomData();
   void UpdateFeedback();
   void UpdateItems();
