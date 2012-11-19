@@ -55,13 +55,15 @@ void DBModel::Save()
     Query(inventoryQuery.str());
   }
 
-  for(auto const& flag : playerData.GetProgress().GetFlags())
+  Progress const& progress = playerData.GetProgress();
+
+  for(auto const& flag : progress.GetFlags())
   {
     boost::format progressQuery("INSERT INTO Progress (saveslot, flag_id, isset) VALUES (%d, %d, %d);");
     progressQuery
         % saveSlot
         % InsertFlag(flag.first)
-        % (playerData.GetProgress().GetFlag(flag.first) ? 1 : 0);
+        % (progress.GetFlag(flag.first) ? 1 : 0);
     Query(progressQuery.str());
   }
 }
