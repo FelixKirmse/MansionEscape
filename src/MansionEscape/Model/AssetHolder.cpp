@@ -21,6 +21,9 @@ Item const& AssetHolder::GetItem(std::string const& name) const
 
 RoomView const& AssetHolder::GetRoom(std::string const& label) const
 {
+  RoomMap::const_iterator iterator = _rooms.find(label);
+  if(iterator == _rooms.end())
+    throw "FUCK";
   return _rooms.find(label)->second;
 }
 

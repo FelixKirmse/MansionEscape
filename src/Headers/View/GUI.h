@@ -31,6 +31,8 @@ public:
 
   explicit GUI(IController* controller);
 
+  void Update();
+
 
 private slots:
   void on_Context1Button_pressed();
@@ -43,8 +45,6 @@ private slots:
   void on_TurnRightButton_pressed();
 
 private:
-  void Update();
-
   void UpdateRoomData();
   void UpdateFeedback();
   void UpdateItems();

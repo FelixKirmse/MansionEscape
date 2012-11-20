@@ -10,9 +10,10 @@ namespace MansionEscape
 Controller::Controller(IModel* model)
   : _model(model), _playerData(model->GetPlayerData()), _feedBack(0),
     _currentRoom(0), _changedRoom(true)
-{  
+{
   _currentRoom = &_model->GetRoom(_playerData.GetRoomLabel());
   _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
+  _feedBack = new std::string("");
 }
 
 void Controller::ChangeRoom(std::string const& newRoom)

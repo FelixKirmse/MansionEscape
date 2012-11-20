@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GUI.ui'
 **
-** Created: Tue Nov 13 13:39:16 2012
+** Created: Tue Nov 20 12:09:29 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,7 +18,6 @@
 #include <QtGui/QLabel>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
-#include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTextBrowser>
@@ -37,13 +36,11 @@ public:
     QListWidget *InventoryView;
     QTextBrowser *FeedbackArea;
     QPushButton *InspectButton;
-    QPushButton *UseButton;
     QPushButton *Context3Button;
     QPushButton *CommentItemButton;
     QPushButton *Context2Button;
     QPushButton *Context1Button;
     QLabel *ImageFrame;
-    QMenuBar *MenuBar;
     QToolBar *MainToolBar;
     QStatusBar *StatusBar;
 
@@ -75,9 +72,6 @@ public:
         InspectButton = new QPushButton(centralWidget);
         InspectButton->setObjectName(QString::fromUtf8("InspectButton"));
         InspectButton->setGeometry(QRect(20, 110, 98, 27));
-        UseButton = new QPushButton(centralWidget);
-        UseButton->setObjectName(QString::fromUtf8("UseButton"));
-        UseButton->setGeometry(QRect(110, 210, 98, 27));
         Context3Button = new QPushButton(centralWidget);
         Context3Button->setObjectName(QString::fromUtf8("Context3Button"));
         Context3Button->setGeometry(QRect(20, 60, 271, 27));
@@ -94,10 +88,6 @@ public:
         ImageFrame->setObjectName(QString::fromUtf8("ImageFrame"));
         ImageFrame->setGeometry(QRect(310, 0, 320, 240));
         GUI->setCentralWidget(centralWidget);
-        MenuBar = new QMenuBar(GUI);
-        MenuBar->setObjectName(QString::fromUtf8("MenuBar"));
-        MenuBar->setGeometry(QRect(0, 0, 640, 23));
-        GUI->setMenuBar(MenuBar);
         MainToolBar = new QToolBar(GUI);
         MainToolBar->setObjectName(QString::fromUtf8("MainToolBar"));
         GUI->addToolBar(Qt::TopToolBarArea, MainToolBar);
@@ -117,7 +107,6 @@ public:
         TurnLeftButton->setText(QApplication::translate("GUI", "<-", 0, QApplication::UnicodeUTF8));
         TurnRightButton->setText(QApplication::translate("GUI", "->", 0, QApplication::UnicodeUTF8));
         InspectButton->setText(QApplication::translate("GUI", "Untersuche", 0, QApplication::UnicodeUTF8));
-        UseButton->setText(QApplication::translate("GUI", "Benutze", 0, QApplication::UnicodeUTF8));
         Context3Button->setText(QApplication::translate("GUI", "ContextAction3", 0, QApplication::UnicodeUTF8));
         CommentItemButton->setText(QApplication::translate("GUI", "Kommentiere", 0, QApplication::UnicodeUTF8));
         Context2Button->setText(QApplication::translate("GUI", "ContextAction2", 0, QApplication::UnicodeUTF8));

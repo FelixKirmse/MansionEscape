@@ -99,6 +99,8 @@ void DBModel::Load()
   playerData.SetRoomLabel(result[0][0]);
   for(auto const& row : result)
   {
+    if(row.size() == 1)
+      return;
     progress.SetFlag(row[1], row[2] == "1");
     inventory.AddItem(row[3]);
   }
@@ -131,7 +133,10 @@ DBModel::QueryResult DBModel::Query(std::string const& query)
     int cols = sqlite3_column_count(statement);
     for(int col = 0; col < cols; ++col)
     {
-      values.push_back((char*)sqlite3_column_text(statement, col));
+      char* columnText = (char*)sqlite3_column_text(statement, col);
+      if(columnText == 0)
+        continue;
+      values.push_back(columnText);
     }
     results.push_back(values);
   }

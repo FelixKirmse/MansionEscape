@@ -2,6 +2,7 @@
 #include "Model/ContextAction.h"
 #include "Model/Item.h"
 #include <qt4/QtGui/QIcon>
+#include <qt4/QtCore/QChar>
 
 namespace MansionEscape
 {
@@ -14,6 +15,7 @@ GUI::GUI(IController* controller)
     _inventory()
 {
   _ui->setupUi(this);
+  Update();
 }
 
 void GUI::on_Context1Button_pressed()
@@ -124,7 +126,7 @@ void GUI::UpdateItems()
     new QListWidgetItem(QIcon(item->GetPixMap()),
                         item->GetName().c_str(),
                         _ui->InventoryView);
-  }
+  } 
 }
 
 }

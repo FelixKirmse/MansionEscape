@@ -38,7 +38,7 @@ void BaseModel::StartNewGame()
 {
   _playerData = PlayerData();
   _playerData.GetInventory().SetModel(this);
-  _playerData.SetRoomLabel("START_N");
+  _playerData.SetRoomLabel("START-N");
   Save();
 }
 }

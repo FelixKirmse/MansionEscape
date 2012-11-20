@@ -52,6 +52,6 @@ std::string XMLModel::GetCurrentSaveFilePath()
   boost::format xmlFile(XMLFile);
   xmlFile
       % GetSaveSlot();
-  return xmlFile.str();
+  return getenv("HOME") + xmlFile.str();
 }
 }
