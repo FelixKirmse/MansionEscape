@@ -122,22 +122,22 @@ SELECT
   Saveslot.currentroom,
   Flag.name,
   Progress.isset,
-  Item.name,
+  Item.name
 FROM
   Saveslot
-INNER JOIN
+LEFT OUTER JOIN
   Progress
 ON
   Saveslot.slot = Progress.saveslot
-INNER JOIN
+LEFT OUTER JOIN
   Flag
 ON
   Progress.flag_id = Flag.id
-INNER JOIN
+LEFT OUTER JOIN
   Inventory
 ON
   Saveslot.slot = Inventory.saveslot
-INNER JOIN
+LEFT OUTER JOIN
   Item
 ON
   Inventory.item_id = Item.id

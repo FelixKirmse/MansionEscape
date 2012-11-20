@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="9">
+<room class_id="0" tracking_level="0" version="0">
+	<_roomLabel>START</_roomLabel>
+	<_roomDescription>Der erste Raum</_roomDescription>
+	<_label>START-N</_label>
+	<_description>Vor dir hängt ein Poster.</_description>
+	<_inspectionString>Das Poster kommt dir bekannt vor.</_inspectionString>
+	<_nextRoom>START-W</_nextRoom>
+	<_failReaction>Nope, das geht nicht</_failReaction>
+	<_requiredFlagsForNextRoom class_id="1" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>		
+	</_requiredFlagsForNextRoom>
+	<_contextActions class_id="2" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>		
+	</_contextActions>
+	<_pictureConditions class_id="4" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>		
+	</_pictureConditions>
+</room>
+</boost_serialization>
+

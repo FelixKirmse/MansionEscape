@@ -26,6 +26,9 @@ int main(int argc, char** argv)
   if(opts.CloseApp)
     return 0;
 
+  opts.Model->SetsaveSlot(1);
+  opts.Model->Load();
+
   if(opts.Interface == 'g')
   {
     GUI gui(new Controller(opts.Model));
