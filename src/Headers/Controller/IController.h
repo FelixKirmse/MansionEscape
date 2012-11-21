@@ -40,7 +40,7 @@ public:
   virtual QPixmap const& GetRoomPicture() const = 0;
 
   virtual ActionVec GetContextActions() const = 0;
-  virtual ItemVec GetInventoryItems() const = 0;
+  virtual ItemVec const& GetInventoryItems() const = 0;
   virtual Item const& GetItemByName(std::string const& name) const = 0;
 
   virtual std::string const& GetFeedback() const = 0;
