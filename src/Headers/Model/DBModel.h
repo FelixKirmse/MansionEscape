@@ -2,7 +2,6 @@
 #include "Model/BaseModel.h"
 #include <sqlite3.h>
 #include <vector>
-#include <sstream>
 
 namespace MansionEscape
 {
@@ -29,8 +28,7 @@ private:
 
   QueryResult Query(std::string const& query);
   void PrintError(std::string const& query);
-  void RecreateTables();
-  void ResetStream(std::stringstream& stream);
+  void RecreateTables();  
 
   int GetFlagID(std::string const& flagName);
   int GetItemID(Item const* item);

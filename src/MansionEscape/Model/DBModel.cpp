@@ -153,12 +153,6 @@ void DBModel::PrintError(std::string const& query)
     std::cout << query << " " << error << std::endl;
 }
 
-void DBModel::ResetStream(std::stringstream& stream)
-{
-  stream.str("");
-  stream.clear();
-}
-
 
 int DBModel::GetID(std::string const& table, std::string const& value)
 {

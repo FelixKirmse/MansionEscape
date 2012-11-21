@@ -103,7 +103,7 @@ Controller::ActionVec Controller::GetContextActions() const
   return availableActions;
 }
 
-Controller::ItemVec Controller::GetInventoryItems() const
+Controller::ItemVec const& Controller::GetInventoryItems() const
 {  
   return _playerData.GetInventory().GetItems();
 }
