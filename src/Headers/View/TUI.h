@@ -2,17 +2,14 @@
 #include <iostream>
 #include <memory>
 #include "Controller/IController.h"
+#include "View/NCursesWrapper.h"
+
+// State Design Pattern
 
 namespace MansionEscape
 {
-/*!
-  \addtogroup View
-  \{
-*/
-/*!
-  \brief Provides a text-based UI to control the game
-  \class TUI View/TUI.h
-*/
+class ITUIState;
+
 class TUI
 {
 public:
@@ -21,40 +18,16 @@ public:
   TUI(IController* controller);
   int Execute();
 
-private:
-  void UpdateState();
-  void DisplayMenu();
-  void Clear();
-  bool Update();
-  bool MainMenuUpdate(char input);
-  bool GameOptionUpdate(char input);
-  bool MoveOptionsUpdate(char input);
-  bool ItemListUpdate(char input);
-  bool ItemListDetailUpdate(char input, Item item);
-  void ReturnToMainMenu();
+  NCursesWrapper& GetNCurses();
+  void ChangeState(ITUIState* newState);
+  IController& GetController();
 
-  std::ostream& _out;
-  std::istream& _in;
-  char _input;
-  Item* _selectedItem;
+private:  
+  ControllerPtr _controller; 
+  NCursesWrapper _ncurses;
+  ITUIState* _currentState;
 
-  ControllerPtr _controller;
-
-  enum
-  {
-    MainMenu,
-    GameOptions,
-    MoveOptions,
-    ItemList,
-    ItemDetailOptions
-  } _menuState;
-
-  bool _closeApp;
-
-  static std::string const MainMenuText;
-  static std::string const GameOptionsText;
-  static std::string const MoveOptionsText;
-  static std::string const WrongInputErrorText;
+  static Coords const MansionEscapeLabelCoords;
+  static std::string const MansionEscape;
 };
-/*!\}*/
 }

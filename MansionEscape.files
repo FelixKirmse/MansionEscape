@@ -41,3 +41,10 @@ src/Headers/Model/Inline/RoomView.inl
 src/MansionEscape/Model/RoomView.cpp
 src/Headers/Model/BaseModel.h
 src/MansionEscape/Model/BaseModel.cpp
+src/Headers/View/NCursesWrapper.h
+src/MansionEscape/View/NCursesWrapper.cpp
+src/Headers/View/Coords.h
+src/Headers/View/ITUIState.h
+src/Headers/View/SelectActionState.h
+src/MansionEscape/View/SelectActionState.cpp
+src/MansionEscape/View/Include/SelectActionConstants.inc
