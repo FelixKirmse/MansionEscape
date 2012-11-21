@@ -28,7 +28,7 @@ ifeq ($(config),debug)
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -ffast-math -g -std=c++11
   CXXFLAGS  += $(CFLAGS) 
-  LDFLAGS   += -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization
+  LDFLAGS   += -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization -lncurses
   LIBS      += 
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
@@ -50,7 +50,7 @@ ifeq ($(config),release)
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -ffast-math -O2 -std=c++11
   CXXFLAGS  += $(CFLAGS) 
-  LDFLAGS   += -s -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization
+  LDFLAGS   += -s -lQtCore -lQtGui -lsqlite3 -lboost_system -lboost_filesystem -lboost_serialization -lncurses
   LIBS      += 
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
@@ -78,6 +78,7 @@ OBJECTS := \
 	$(OBJDIR)/ItemInfo.o \
 	$(OBJDIR)/BaseModel.o \
 	$(OBJDIR)/Progress.o \
+	$(OBJDIR)/NCursesWrapper.o \
 	$(OBJDIR)/moc_GUI.o \
 	$(OBJDIR)/GUI.o \
 	$(OBJDIR)/TUI.o \
@@ -181,6 +182,9 @@ $(OBJDIR)/BaseModel.o: src/MansionEscape/Model/BaseModel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Progress.o: src/MansionEscape/Model/Progress.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/NCursesWrapper.o: src/MansionEscape/View/NCursesWrapper.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/moc_GUI.o: src/MansionEscape/View/moc_GUI.cpp
