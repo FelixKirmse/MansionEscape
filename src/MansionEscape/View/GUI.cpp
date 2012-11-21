@@ -42,12 +42,12 @@ void GUI::on_CommentItemButton_pressed()
     _ui->FeedbackArea->setText("Es muss ein Item ausgewählt sein, um es zu kommentieren.");
   QString const& itemName = _ui->InventoryView->currentItem()->text();
   Item const& item = _controller->GetItemByName(itemName.toStdString());
-  _ui->FeedbackArea->setText(item.GetCommentString().c_str());
+  _ui->FeedbackArea->setText(QString::fromUtf8(item.GetCommentString().c_str()));
 }
 
 void GUI::on_InspectButton_pressed()
 {
-  _ui->FeedbackArea->setText(_controller->GetRoomInspectString().c_str());
+  _ui->FeedbackArea->setText(QString::fromUtf8(_controller->GetRoomInspectString().c_str()));
 }
 
 void GUI::on_ForwardButton_pressed()
@@ -55,7 +55,7 @@ void GUI::on_ForwardButton_pressed()
   _controller->GoForward();
 
   if(_controller->RoomChanged())
-    _ui->FeedbackArea->setText(_controller->GetRoomDescription().c_str());
+    _ui->FeedbackArea->setText(QString::fromUtf8(_controller->GetRoomDescription().c_str()));
 
   UpdateRoomData();
   UpdateFeedback();
@@ -96,25 +96,25 @@ void GUI::UpdateRoomData()
   if(actionCount == 0)
     return;
 
-  _ui->Context1Button->setText(_contextActions[0]->GetLabel().c_str());
+  _ui->Context1Button->setText(QString::fromUtf8(_contextActions[0]->GetLabel().c_str()));
   _ui->Context1Button->show();
 
   if(actionCount == 1)
     return;
 
-  _ui->Context2Button->setText(_contextActions[1]->GetLabel().c_str());
+  _ui->Context2Button->setText(QString::fromUtf8(_contextActions[1]->GetLabel().c_str()));
   _ui->Context2Button->show();
 
   if(actionCount == 2)
     return;
 
-  _ui->Context3Button->setText(_contextActions[2]->GetLabel().c_str());
+  _ui->Context3Button->setText(QString::fromUtf8(_contextActions[2]->GetLabel().c_str()));
   _ui->Context3Button->show();
 }
 
 void GUI::UpdateFeedback()
 {
-  _ui->FeedbackArea->setText(_controller->GetFeedback().c_str());
+  _ui->FeedbackArea->setText(QString::fromUtf8(_controller->GetFeedback().c_str()));
 }
 
 void GUI::UpdateItems()
@@ -124,7 +124,7 @@ void GUI::UpdateItems()
   for(Item const* item : _inventory)
   {
     new QListWidgetItem(QIcon(item->GetPixMap()),
-                        item->GetName().c_str(),
+                        QString::fromUtf8(item->GetName().c_str()),
                         _ui->InventoryView);
   } 
 }
