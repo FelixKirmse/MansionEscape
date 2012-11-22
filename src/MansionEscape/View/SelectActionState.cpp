@@ -2,6 +2,8 @@
 #include "View/TUI.h"
 #include "View/NCursesWrapper.h"
 #include "Model/ContextAction.h"
+#include "View/CompassState.h"
+#include "View/InventoryState.h"
 
 namespace MansionEscape
 {
@@ -53,9 +55,15 @@ bool SelectActionState::Action(int input, TUI& tui)
     controller.InspectRoom();
     break;
   case 'i':
+    tui.ChangeState(&InventoryState::GetInstance());
+    break;
+  case 'c':
+    tui.ChangeState(&CompassState::GetInstance());
     break;
   case (char)27:
     return false;
+  default:
+    break;
   }
   return true;
 }
@@ -74,8 +82,7 @@ void SelectActionState::Draw(TUI& tui)
     nc.WriteAtCoords(RoomDescriptionCoords2,
                      controller.GetRoomViewDescription());
 
-  nc.WriteAtCoords(FeedBackCoords, controller.GetFeedback());
-  nc.WriteAtCoords(RoomLabelCoords, controller.GetRoomLabel());
+  nc.WriteAtCoords(FeedBackCoords, controller.GetFeedback());  
 
   nc.WriteAtCoords(BaseMenuCoords, BaseMenuString);
 

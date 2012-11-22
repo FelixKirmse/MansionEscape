@@ -64,8 +64,8 @@ void load(Archive& ar, MansionEscape::PlayerData& playerData, unsigned int const
   IModel* model = playerData.GetInventory().GetModel();
   Inventory inventory;
   inventory.SetModel(model);
-  ar & make_nvp("inventory", inventory);
   inventory.SetProgress(&playerData.GetProgress());
+  ar & make_nvp("inventory", inventory);  
   playerData.SetInventory(inventory);
 
   std::string roomLabel;
