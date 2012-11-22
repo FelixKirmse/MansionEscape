@@ -79,8 +79,10 @@ OBJECTS := \
 	$(OBJDIR)/BaseModel.o \
 	$(OBJDIR)/Progress.o \
 	$(OBJDIR)/NCursesWrapper.o \
+	$(OBJDIR)/InventoryState.o \
 	$(OBJDIR)/SelectActionState.o \
 	$(OBJDIR)/moc_GUI.o \
+	$(OBJDIR)/CompassState.o \
 	$(OBJDIR)/GUI.o \
 	$(OBJDIR)/TUI.o \
 
@@ -188,10 +190,16 @@ $(OBJDIR)/Progress.o: src/MansionEscape/Model/Progress.cpp
 $(OBJDIR)/NCursesWrapper.o: src/MansionEscape/View/NCursesWrapper.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/InventoryState.o: src/MansionEscape/View/InventoryState.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/SelectActionState.o: src/MansionEscape/View/SelectActionState.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/moc_GUI.o: src/MansionEscape/View/moc_GUI.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/CompassState.o: src/MansionEscape/View/CompassState.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/GUI.o: src/MansionEscape/View/GUI.cpp

@@ -48,3 +48,9 @@ src/Headers/View/ITUIState.h
 src/Headers/View/SelectActionState.h
 src/MansionEscape/View/SelectActionState.cpp
 src/MansionEscape/View/Include/SelectActionConstants.inc
+src/Headers/View/CompassState.h
+src/MansionEscape/View/Include/CompassStateConstants.inc
+src/MansionEscape/View/CompassState.cpp
+src/Headers/View/InventoryState.h
+src/MansionEscape/View/InventoryState.cpp
+src/MansionEscape/View/Include/InventoryStateConstants.inc

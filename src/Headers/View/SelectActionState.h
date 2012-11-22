@@ -27,8 +27,7 @@ private:
 
   static Coords const RoomDescriptionCoords1; // Für RoomViewDescription, wenn RoomChanged() == false
   static Coords const RoomDescriptionCoords2; // Für RoomViewDescription, wenn RoomChanged() == true
-  static Coords const FeedBackCoords;
-  static Coords const RoomLabelCoords;
+  static Coords const FeedBackCoords;  
 
   static Coords const ContextAction1Coords;
   static Coords const ContextAction2Coords;

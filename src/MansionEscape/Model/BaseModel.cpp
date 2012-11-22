@@ -7,6 +7,7 @@ BaseModel::BaseModel()
 {
   _assetHolder.LoadAssets();
   _playerData.GetInventory().SetModel(this);
+  _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
 }
 
 void BaseModel::SetsaveSlot(int saveSlot)
@@ -38,6 +39,7 @@ void BaseModel::StartNewGame()
 {
   _playerData = PlayerData();
   _playerData.GetInventory().SetModel(this);
+  _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
   _playerData.SetRoomLabel("START-N");
   Save();
 }

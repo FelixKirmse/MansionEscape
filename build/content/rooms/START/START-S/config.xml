@@ -20,49 +20,32 @@ Hier ist ein Zeilenumbruch.</_description>
 		<count>2</count>
 		<item_version>0</item_version>
 		<item class_id="3" tracking_level="0" version="0">
-			<_label>ContextAction-Label - Volle ContextAction</_label>
-			<_reaction>Hier kommt die Reaktion rein.</_reaction>
+			<_label>Nehme Besen</_label>
+			<_reaction>Besen erhalten!</_reaction>
 			<_forbiddenFlags>
-				<count>3</count>
-				<item_version>0</item_version>
-				<item>FORBIDDENFLAG1</item>
-				<item>FORBIDDENFLAG2</item>
-				<item>FORBIDDENFLAG3</item>
+				<count>0</count>
+				<item_version>0</item_version>					
 			</_forbiddenFlags>
 			<_requiresFlags>
-				<count>3</count>
-				<item_version>0</item_version>
-				<item>REQUIRESFLAG1</item>
-				<item>REQUIRESFLAG2</item>
-				<item>REQUIRESFLAG3</item>
+				<count>0</count>
+				<item_version>0</item_version>				
 			</_requiresFlags>
 			<_grantsFlags>
-				<count>3</count>
-				<item_version>0</item_version>
-				<item>GRANTFLAG1</item>
-				<item>GRANTFLAG2</item>
-				<item>GRANTFLAG3</item>
+				<count>0</count>
+				<item_version>0</item_version>				
 			</_grantsFlags>
 			<_removesFlags>
-				<count>3</count>
-				<item_version>0</item_version>
-				<item>REMOVEFLAG1</item>
-				<item>REMOVEFLAG2</item>
-				<item>REMOVEFLAG3</item>
+				<count>0</count>
+				<item_version>0</item_version>				
 			</_removesFlags>
 			<_removesItems>
-				<count>3</count>
-				<item_version>0</item_version>
-				<item>REMOVEITEM1</item>
-				<item>REMOVEITEM2</item>
-				<item>REMOVEITEM3</item>
+				<count>0</count>
+				<item_version>0</item_version>				
 			</_removesItems>
 			<_grantsItems>
-				<count>3</count>
+				<count>1</count>
 				<item_version>0</item_version>
-				<item>GRANTITEM1</item>
-				<item>GRANTITEM2</item>
-				<item>GRANTITEM3</item>
+				<item>Besen</item>				
 			</_grantsItems>
 		</item>
 		<item>

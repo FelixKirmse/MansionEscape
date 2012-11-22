@@ -41,6 +41,7 @@ public:
   ItemVec const& GetInventoryItems() const;
   Item const& GetItemByName(std::string const& name) const;
   std::string const& GetFeedback() const;
+  char GetDirection() const;
   /* IController Functions End */
 
 private:

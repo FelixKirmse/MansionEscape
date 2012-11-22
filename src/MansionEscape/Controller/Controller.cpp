@@ -132,4 +132,9 @@ std::string const& Controller::GetFeedback() const
   return *_feedBack;
 }
 
+char Controller::GetDirection() const
+{
+  return *_currentRoom->GetViewLabel().rbegin();
+}
+
 }

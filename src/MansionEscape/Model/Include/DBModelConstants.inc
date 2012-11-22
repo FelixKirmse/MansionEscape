@@ -16,7 +16,7 @@ R"(
 CREATE TABLE IF NOT EXISTS
   Item
   (
-    id  UNSIGNED INTEGER PRIMARY KEY ASC,
+    id  INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR NOT NULL
   );
 )");
@@ -27,7 +27,7 @@ R"(
 CREATE TABLE IF NOT EXISTS
   Flag
   (
-      id UNSIGNED INTEGER PRIMARY KEY ASC,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       name VARCHAR NOT NULL
   );
 )");
@@ -37,7 +37,7 @@ R"(
 CREATE TABLE IF NOT EXISTS
   saveslot
   (
-    slot UNSIGNED INTEGER PRIMARY KEY ASC,
+    slot INTEGER PRIMARY KEY AUTOINCREMENT,
     currentroom VARCHAR NOT NULL
   );
 )");
@@ -47,8 +47,8 @@ R"(
 CREATE TABLE IF NOT EXISTS
   Inventory
   (
-    saveslot UNSIGNED INTEGER NOT NULL,
-    item_id UNSIGNED INTEGER NOT NULL,
+    saveslot INTEGER NOT NULL,
+    item_id  INTEGER NOT NULL,
     FOREIGN KEY(saveSlot) REFERENCES saveSlot(slot),
     FOREIGN KEY(item_id) REFERENCES Item(id)
   );
@@ -59,8 +59,8 @@ R"(
 CREATE TABLE IF NOT EXISTS
   Progress
   (
-    saveslot UNSIGNED INTEGER NOT NULL,
-    flag_id UNSIGNED INTEGER NOT NULL,
+    saveslot INTEGER NOT NULL,
+    flag_id INTEGER NOT NULL,
     isset BOOLEAN NOT NULL,
     FOREIGN KEY(saveSlot) REFERENCES saveSlot(slot),
     FOREIGN KEY(flag_id) REFERENCES Flag(id)
