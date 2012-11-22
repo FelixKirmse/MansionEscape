@@ -9,13 +9,6 @@ class ITUIState
 public:
   virtual ~ITUIState() {}
 
-  virtual bool Update(TUI& tui);
+  virtual bool Update(TUI& tui) = 0;
 };
 }
-
-
-enum States
-{
-  SelectAction,
-  Inventory
-};

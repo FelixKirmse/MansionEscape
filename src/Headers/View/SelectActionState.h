@@ -2,6 +2,7 @@
 #include "View/ITUIState.h"
 #include "View/Coords.h"
 #include <string>
+#include "Controller/IController.h"
 
 // Memory-Safe Singleton Pattern
 
@@ -17,8 +18,12 @@ public:
 private:
   SelectActionState();
 
-  bool Action(int keycode, TUI& tui);
+  bool Action(int input, TUI& tui);
+
   void Draw(TUI& tui);
+
+
+  IController::ActionVec _contextActions;
 
   static Coords const RoomDescriptionCoords1; // Für RoomViewDescription, wenn RoomChanged() == false
   static Coords const RoomDescriptionCoords2; // Für RoomViewDescription, wenn RoomChanged() == true

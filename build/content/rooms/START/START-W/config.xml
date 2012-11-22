@@ -17,7 +17,7 @@ Hier ist ein Zeilenumbruch.</_description>
 		<item>NEXTROOMFLAG2</item>
 	</_requiredFlagsForNextRoom>
 	<_contextActions class_id="2" tracking_level="0" version="0">
-		<count>2</count>
+		<count>3</count>
 		<item_version>0</item_version>
 		<item class_id="3" tracking_level="0" version="0">
 			<_label>ContextAction-Label - Volle ContextAction</_label>
@@ -67,6 +67,34 @@ Hier ist ein Zeilenumbruch.</_description>
 		</item>
 		<item>
 			<_label>Beispiel für Leere KontextAction</_label>
+			<_reaction>Geht immer und nix passiert</_reaction>
+			<_forbiddenFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_forbiddenFlags>
+			<_requiresFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_requiresFlags>
+			<_grantsFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_grantsFlags>
+			<_removesFlags>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_removesFlags>
+			<_removesItems>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_removesItems>
+			<_grantsItems>
+				<count>0</count>
+				<item_version>0</item_version>
+			</_grantsItems>
+		</item>
+		<item>
+			<_label>Zweite Leere KontextAktion</_label>
 			<_reaction>Geht immer und nix passiert</_reaction>
 			<_forbiddenFlags>
 				<count>0</count>

@@ -1,7 +1,7 @@
 local QT_LIBRARIES = "-lQtCore -lQtGui"
 local SQLITE = "-lsqlite3"
 local BOOST_LIBRARIES = "-lboost_system -lboost_filesystem -lboost_serialization"
-local NCURSES = "-lncurses"
+local NCURSES = "-lncursesw"
 
 solution "MansionEscape"
     configurations { "Debug", "Release" }
