@@ -47,7 +47,8 @@ void GUI::on_CommentItemButton_pressed()
 
 void GUI::on_InspectButton_pressed()
 {
-  _ui->FeedbackArea->setText(QString::fromUtf8(_controller->GetRoomInspectString().c_str()));
+  _controller->InspectRoom();
+  UpdateFeedback();
 }
 
 void GUI::on_ForwardButton_pressed()

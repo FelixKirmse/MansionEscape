@@ -2,6 +2,7 @@
 #include "Model/ContextAction.h"
 #include "Model/PlayerData.h"
 #include "Model/RoomView.h"
+#include "Model/Item.h"
 
 
 namespace MansionEscape
@@ -13,15 +14,15 @@ Controller::Controller(IModel* model)
 {
   _currentRoom = &_model->GetRoom(_playerData.GetRoomLabel());
   _playerData.GetInventory().SetProgress(&_playerData.GetProgress());
-  _feedBack = new std::string("");
 }
 
 void Controller::ChangeRoom(std::string const& newRoom)
 {
   RoomView const& newRoomObj = _model->GetRoom(newRoom);
-  _changedRoom = newRoomObj.GetRoomLabel() == _currentRoom->GetRoomLabel();
+  _changedRoom = newRoomObj.GetRoomLabel() != _currentRoom->GetRoomLabel();
   _currentRoom = &newRoomObj;
   _playerData.SetRoomLabel(newRoom);
+  _feedBack = 0;
 }
 
 void Controller::GoForward()
@@ -41,6 +42,7 @@ void Controller::TurnLeft()
   char append = dir == 'N' ? 'W' : dir == 'W' ? 'S' : dir == 'S' ? 'E' : 'N';
 
   ChangeRoom(_currentRoom->GetRoomLabel() + "-" + append);
+  _feedBack = 0;
   _model->Save();
 }
 
@@ -52,6 +54,7 @@ void Controller::TurnRight()
   char append = dir == 'N' ? 'E' : dir == 'E' ? 'S' : dir == 'S' ? 'W' : 'N';
 
   ChangeRoom(_currentRoom->GetRoomLabel() + "-" + append);
+  _feedBack = 0;
   _model->Save();
 }
 
@@ -59,7 +62,20 @@ void Controller::PerformContextAction(ContextAction const& action)
 {
   action.Perform(_playerData.GetProgress(), _playerData.GetInventory());
   _feedBack = &action.GetReaction();
+  _changedRoom = false;
   _model->Save();
+}
+
+void Controller::CommentItem(Item const& item)
+{
+  _feedBack = &item.GetCommentString();
+  _changedRoom = false;
+}
+
+void Controller::InspectRoom()
+{
+  _feedBack = &_currentRoom->GetInspectionString();
+  _changedRoom = false;
 }
 
 std::string const& Controller::GetRoomLabel() const
@@ -80,11 +96,6 @@ bool Controller::RoomChanged() const
 std::string const& Controller::GetRoomDescription() const
 {
   return _currentRoom->GetRoomDescription();
-}
-
-std::string const& Controller::GetRoomInspectString() const
-{
-  return _currentRoom->GetInspectionString();
 }
 
 QPixmap const& Controller::GetRoomPicture() const
@@ -113,8 +124,11 @@ Item const& Controller::GetItemByName(std::string const& name) const
   return _model->GetItem(name);
 }
 
+
 std::string const& Controller::GetFeedback() const
 {
+  if(_feedBack == 0)
+    return "";
   return *_feedBack;
 }
 

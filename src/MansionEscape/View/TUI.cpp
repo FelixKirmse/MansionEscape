@@ -12,7 +12,7 @@ std::string const TUI::MansionEscape("MansionEscape");
 TUI::TUI(IController* controller)
   : _controller(controller), _ncurses(),
     _currentState(&SelectActionState::GetInstance())
-{
+{ 
 }
 
 int TUI::Execute()
@@ -38,7 +38,7 @@ void TUI::ChangeState(ITUIState* newState)
   _currentState = newState;
 }
 
-IController& GetController()
+IController& TUI::GetController()
 {
   return *_controller;
 }

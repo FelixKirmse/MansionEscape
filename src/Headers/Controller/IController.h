@@ -30,19 +30,18 @@ public:
   virtual void TurnLeft() = 0;
   virtual void TurnRight() = 0;
   virtual void PerformContextAction(ContextAction const& action) = 0;
+  virtual void CommentItem(Item const& item) = 0;
+  virtual void InspectRoom() = 0;
 
 
   virtual std::string const& GetRoomLabel() const = 0;
   virtual std::string const& GetRoomViewDescription() const = 0;
   virtual bool RoomChanged() const = 0;
-  virtual std::string const& GetRoomDescription() const = 0;
-  virtual std::string const& GetRoomInspectString() const = 0;
+  virtual std::string const& GetRoomDescription() const = 0;  
   virtual QPixmap const& GetRoomPicture() const = 0;
-
   virtual ActionVec GetContextActions() const = 0;
-  virtual ItemVec const& GetInventoryItems() const = 0;
+  virtual ItemVec const& GetInventoryItems() const = 0;  
   virtual Item const& GetItemByName(std::string const& name) const = 0;
-
   virtual std::string const& GetFeedback() const = 0;
 };
 /*!\}*/

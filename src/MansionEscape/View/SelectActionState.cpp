@@ -1,6 +1,7 @@
 #include "View/SelectActionState.h"
 #include "View/TUI.h"
 #include "View/NCursesWrapper.h"
+#include "Model/ContextAction.h"
 
 namespace MansionEscape
 {
@@ -18,15 +19,27 @@ SelectActionState& SelectActionState::GetInstance()
 
 bool SelectActionState::Update(TUI& tui)
 {
-
-  return Action((char)getch(), tui);
+  Draw(tui);
+  return Action(tui.GetNCurses().GetKeyCode(), tui);
 }
 
-bool SelectActionState::Action(char input, TUI& tui)
+bool SelectActionState::Action(int input, TUI& tui)
 {
   IController& controller = tui.GetController();
-  switch(keycode)
+  switch((char)input)
   {
+  case '1':
+    if(_contextActions.size() > 0)
+      controller.PerformContextAction(*_contextActions[0]);
+    break;
+  case '2':
+    if(_contextActions.size() > 1)
+      controller.PerformContextAction(*_contextActions[1]);
+    break;
+  case '3':
+    if(_contextActions.size() > 2)
+      controller.PerformContextAction(*_contextActions[2]);
+    break;
   case 'w':
     controller.GoForward();
     break;
@@ -37,7 +50,7 @@ bool SelectActionState::Action(char input, TUI& tui)
     controller.TurnRight();
     break;
   case 'e':
-    controller;
+    controller.InspectRoom();
     break;
   case 'i':
     break;
@@ -66,18 +79,18 @@ void SelectActionState::Draw(TUI& tui)
 
   nc.WriteAtCoords(BaseMenuCoords, BaseMenuString);
 
-  IController::ActionVec contextActions = controller.GetContextActions();
+  _contextActions = controller.GetContextActions();
 
-  if(contextActions.size() == 0)
+  if(_contextActions.size() == 0)
     return;
-  nc.WriteAtCoords(ContextAction3Coords, contextAction[0]);
+  nc.WriteAtCoords(ContextAction1Coords,"(1)   " + _contextActions[0]->GetLabel());
 
-  if(contextActions.size() == 1)
+  if(_contextActions.size() == 1)
     return;
-  nc.WriteAtCoords(ContextAction3Coords, contextAction[1]);
+  nc.WriteAtCoords(ContextAction2Coords,"(2)   " + _contextActions[1]->GetLabel());
 
-  if(contextActions.size() == 2)
+  if(_contextActions.size() == 2)
     return;
-  nc.WriteAtCoords(ContextAction3Coords, contextAction[2]);
+  nc.WriteAtCoords(ContextAction3Coords,"(3)   " + _contextActions[2]->GetLabel());
 }
 }

@@ -18,5 +18,13 @@ public:
 
   void ClearScreen();
   void UpdateScreen();
+
+  int GetKeyCode();
+  Coords GetMousePosition();
+  void SubscribeToOnClickEvents();
+  bool MouseClicked(int keycode);
+
+private:
+  MEVENT _mouseEvent;
 };
 }
