@@ -2,7 +2,7 @@
 
 namespace MansionEscape
 {
-std::string const ItemInfo::ItemPicturePath("contents/items/%s/%s.png");
+std::string const ItemInfo::ItemPicturePath("content/items/%s/%s.png");
 
 ItemInfo::ItemInfo()
   : _name("Invalid Item"), _commentString("Invalid Item"), _picture()
