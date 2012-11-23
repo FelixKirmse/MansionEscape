@@ -10,6 +10,7 @@ namespace MansionEscape
 
 Launcher::Launcher()
   : _menuState(MainMenu), _selectedInterface('g'), _selectedModel('x'),
+    _saveSlot(1),
     _closeApp(false)
 {
   do
@@ -27,12 +28,15 @@ GameOptions Launcher::GetOptions()
   else
     modelPtr = new DBModel();
 
+  modelPtr->SetsaveSlot(_saveSlot);
+  modelPtr->Load();
+
   return
   {
       _selectedInterface,
       modelPtr,
       _closeApp
-  };
+};
 }
 
 void Launcher::Clear()
@@ -52,7 +56,8 @@ void Launcher::DisplayMenu()
     format mainMenu(MainMenuText);
     mainMenu
         % (_selectedInterface == 'g' ? GUI : TUI)
-        % (_selectedModel == 'x' ? XML : DB);
+        % (_selectedModel == 'x' ? XML : DB)
+        % _saveSlot;
     cout << mainMenu.str();
     break;
   }
@@ -67,6 +72,10 @@ void Launcher::DisplayMenu()
 
   case SelectModel:
     cout << SelectModelText;
+    break;
+
+  case SelectSaveSlot:
+    cout << SaveSlotText;
     break;
   }
   cout << endl << "Ihre Auswahl: ";
@@ -89,6 +98,9 @@ bool Launcher::Update()
 
   case SelectModel:
     return SelectModelUpdate(input);
+
+  case SelectSaveSlot:
+    return SelectSaveSlotUpdate(input);
   }
   return true;
 }
@@ -112,6 +124,9 @@ bool Launcher::MainMenuUpdate(char input)
     _menuState = SelectModel;
     return true;
 
+  case 'e':
+    _menuState = SelectSaveSlot;
+    return true;
   case 'q':
     _closeApp = true;
     return false;
@@ -126,10 +141,33 @@ bool Launcher::SaveDeleteUpdate(char input)
   switch(input)
   {
   case 'a':
-    XMLModel().Delete();
+  { //Scope Einschränken
+    XMLModel xmlModel;
+    xmlModel.SetsaveSlot(_saveSlot);
+    xmlModel.Delete();
+  }
     break;
+
   case 'b':
-    DBModel().Delete();
+  { //Scope Einschränken
+    DBModel dbModel;
+    dbModel.SetsaveSlot(_saveSlot);
+    dbModel.Delete();
+  }
+    break;
+
+  case 'c':
+  { //Scope Einschränken
+    DBModel dbm;
+    XMLModel xmlm;
+    for(int i = 0; i < 9; ++i)
+    {
+      dbm.SetsaveSlot(i);
+      xmlm.SetsaveSlot(i);
+      dbm.Delete();
+      xmlm.Delete();
+    }
+  }
     break;
 
   case 'q':
@@ -173,4 +211,24 @@ bool Launcher::SelectModelUpdate(char input)
   }
 }
 
+bool Launcher::SelectSaveSlotUpdate(char input)
+{
+  switch(input)
+  {
+  case '1':
+  case '2':
+  case '3':
+  case '4':
+  case '5':
+  case '6':
+  case '7':
+  case '8':
+  case '9':
+    _saveSlot = input - '0';
+  case 'q':
+    _menuState = MainMenu;
+  default:
+    return true;
+  }
+}
 }

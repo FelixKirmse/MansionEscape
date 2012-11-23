@@ -4,31 +4,10 @@
 
 namespace MansionEscape
 {
-/*!
-  \addtogroup Launcher
-  \{
-*/
-/*!
- \brief Class used to display and manage the Launcher menu
-
- \class Launcher Launcher.h "src/Headers/Launcher.h"
-*/
 class Launcher
 {
 public:
-/*!
- \brief Contructs the launcher and executes the Menu until the game is either started or the app closed
-
- \fn Launcher
-*/
-  Launcher();
-
-  /*!
-   \brief Gets the GameOptions that were selected in the Menu
-
-   \fn GetOptions
-   \return GameOptions
-  */
+  Launcher();  
   GameOptions GetOptions();
 
 private:
@@ -40,27 +19,30 @@ private:
   bool SaveDeleteUpdate(char input);
   bool SelectInterfaceUpdate(char input);
   bool SelectModelUpdate(char input);
+  bool SelectSaveSlotUpdate(char input);
 
   enum
   {
     MainMenu,
     SaveDelete,
     SelectInterface,
-    SelectModel
+    SelectModel,
+    SelectSaveSlot
   } _menuState;
 
   char _selectedInterface;
   char _selectedModel;
+  int _saveSlot;
   bool _closeApp;
 
   static std::string const MainMenuText;
   static std::string const SaveDeleteText;
   static std::string const SelectInterfaceText;
   static std::string const SelectModelText;
+  static std::string const SaveSlotText;
   static std::string const GUI;
   static std::string const TUI;
   static std::string const DB;
   static std::string const XML;
 };
-/*!\}*/
 }

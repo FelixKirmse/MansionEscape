@@ -10,15 +10,6 @@ class Item;
 class Inventory;
 struct ContextAction;
 
-/*!
- \addtogroup Controller
- \{
-*/
-/*!
- \brief Interface that exposes functions to control game state
-
- \interface IController Controller/IController.h
-*/
 class IController
 {
 public:
@@ -45,5 +36,4 @@ public:
   virtual std::string const& GetFeedback() const = 0;
   virtual char GetDirection() const = 0;
 };
-/*!\}*/
 }

@@ -37,7 +37,7 @@ R"(
 CREATE TABLE IF NOT EXISTS
   saveslot
   (
-    slot INTEGER PRIMARY KEY AUTOINCREMENT,
+    slot INTEGER PRIMARY KEY ASC,
     currentroom VARCHAR NOT NULL
   );
 )");
