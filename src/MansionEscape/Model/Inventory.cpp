@@ -5,7 +5,7 @@
 
 namespace MansionEscape
 {
-// TODO statt strings Item const* speichern!!!!
+
 Inventory::ItemVec const& Inventory::GetItems() const
 {
   return _items;

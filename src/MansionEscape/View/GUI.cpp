@@ -124,10 +124,9 @@ void GUI::UpdateItems()
   _ui->InventoryView->clear();
   for(Item const* item : _inventory)
   {
-    new QListWidgetItem(QIcon(item->GetPixMap()),
-                        QString::fromUtf8(item->GetName().c_str()),
-                        _ui->InventoryView);
-  } 
+    _ui->InventoryView->addItem(new QListWidgetItem(QIcon(item->GetPixMap()),
+                                                    QString::fromUtf8(item->GetName().c_str())));
+  }
 }
 
 }
